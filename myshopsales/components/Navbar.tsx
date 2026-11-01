@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DesktopMenu from "@/components/DesktopMenu";
 import MobileMenu from "@/components/MobileMenu";
+import { demos } from "@/data/demos";
 
 export type NavLink = {
     label: string;
@@ -15,6 +16,32 @@ export type NavItem = {
     children?: NavLink[];
 };
 
+// Short, scannable descriptions for the dropdown menu.
+// The full description shown on each demo page lives in `demos.ts`.
+const demoShortDescriptions: Record<string, string> = {
+    "online-shop": "The customer-facing storefront experience.",
+    mpesa: "How payment works at the end of checkout.",
+    "shop-management": "Manage orders, products, and inventory.",
+    "business-insights": "Reports and admin summaries.",
+    integrations: "Connect the services you already use.",
+    discounts: "Codes and promotions at checkout.",
+    reviews: "Star ratings and moderated reviews.",
+    shipping: "Delivery zones and rates.",
+    customers: "Who has ordered and what they bought.",
+    returns: "Record and resolve customer returns.",
+    suppliers: "Who you buy stock from.",
+    newsletter: "Collect emails and send campaigns.",
+    banners: "Hero slides on your storefront.",
+};
+
+// Built from the same `demos` array the rest of the site uses, so the
+// dropdown cannot drift out of sync when a demo is added or renamed.
+const demoNavLinks: NavLink[] = demos.map((demo) => ({
+    label: demo.title,
+    href: demo.href,
+    description: demoShortDescriptions[demo.slug] ?? demo.description,
+}));
+
 const navigation: NavItem[] = [
     {
         label: "Home",
@@ -24,31 +51,7 @@ const navigation: NavItem[] = [
         label: "Explore Demos",
         href: "/demos",
         children: [
-            {
-                label: "Online Shop",
-                href: "/demos/online-shop",
-                description: "The customer-facing storefront experience.",
-            },
-            {
-                label: "M-Pesa Checkout",
-                href: "/demos/mpesa",
-                description: "How payment works at the end of checkout.",
-            },
-            {
-                label: "Orders and Stock",
-                href: "/demos/shop-management",
-                description: "Manage orders, products, and inventory.",
-            },
-            {
-                label: "Business Insights",
-                href: "/demos/business-insights",
-                description: "Reports and admin summaries.",
-            },
-            {
-                label: "WhatsApp and Social Integrations",
-                href: "/demos/integrations",
-                description: "Connect the services you already use.",
-            },
+            ...demoNavLinks,
             {
                 label: "View All Demos",
                 href: "/demos",
@@ -119,11 +122,12 @@ export default function Navbar() {
             >
                 <Link
                     href="/"
+                    aria-label="RazeStore home"
                     className="flex items-center gap-1 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                     <Image
                         src="/logo.jpeg"
-                        alt="RazeStore logo"
+                        alt=""
                         width={36}
                         height={36}
                         priority
@@ -140,6 +144,7 @@ export default function Navbar() {
                         href={whatsappHref}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Chat with RazeStore on WhatsApp (opens in a new tab)"
                         className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
                     >
                         Chat on WhatsApp

@@ -1,39 +1,40 @@
 import Link from "next/link";
-import DemoViewer from "@/components/demos/VideoViewer";
+import VideoViewer from "@/components/demos/VideoViewer";
 import ScreenshotGallery from "@/components/demos/ScreenshotGallery";
+import type { Screenshot } from "@/components/demos/ScreenshotGallery";
 
 const insightsMedia = {
-    videoSrc: "/videos/completestorefront.mp4",
-    posterSrc: "/landing/featured-demo-poster.webp",
+    videoSrc: "/videos/businessinsights.mp4",
+    posterSrc: "/images/sales.png",
     alt: "RazeStore business insights overview showing sample order and sales summaries.",
     caption:
         "Business insights overview: sample order counts, sales totals, and top-selling products inside the RazeStore admin.",
 };
 
-const insightScreenshots = [
+const insightScreenshots: Screenshot[] = [
     {
-        src: "",
+        src: "/images/sales.png",
         alt: "RazeStore sales summary report with sample figures.",
         title: "Sales summary",
         caption:
             "Totals for a chosen period, showing sales value and order count. Figures shown are sample data, not real customer data.",
     },
     {
-        src: "",
+        src: "/images/topproducts.png",
         alt: "RazeStore top products report with sample figures.",
         title: "Top products",
         caption:
             "Which products sold most in the selected period. Figures shown are sample data, not real customer data.",
     },
     {
-        src: "",
+        src: "/images/ordersstatusoverview.png",
         alt: "RazeStore order status summary with sample figures.",
         title: "Order status overview",
         caption:
             "A breakdown of recent orders by status (for example new, paid, delivered). Figures shown are sample data, not real customer data.",
     },
     {
-        src: "",
+        src: "/images/customerai.png",
         alt: "RazeStore AI assistant panel shown with sample prompts and replies.",
         title: "AI assistant",
         caption:
@@ -61,7 +62,10 @@ const verifiedReports: VerifiedFeature[] = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
+    /\D/g,
+    "",
+);
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to understand the RazeStore business insights and AI assistant before deciding.",
@@ -122,7 +126,7 @@ export default function BusinessInsightsDemoPage() {
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-6 pb-4">
-                <DemoViewer
+                <VideoViewer
                     videoSrc={insightsMedia.videoSrc}
                     posterSrc={insightsMedia.posterSrc}
                     alt={insightsMedia.alt}

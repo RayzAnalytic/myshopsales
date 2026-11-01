@@ -3,8 +3,8 @@ export type DemoStatus = "available" | "requires-setup" | "confirm-scope";
 export type DemoScreenshot = {
     src: string;
     alt: string;
-    title?: string;
-    caption?: string;
+    title: string;
+    caption: string;
 };
 
 export type Demo = {
@@ -32,28 +32,28 @@ export const demos: Demo[] = [
         category: "Storefront",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/productlisting.png",
         thumbnailAlt:
             "RazeStore online shop storefront showing product listings and navigation.",
         videoSrc: "/videos/completestorefront.mp4",
-        posterSrc: "/landing/featured-demo-poster.webp",
+        posterSrc: "/images/storefrontposter.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/productlisting.png",
                 alt: "RazeStore online shop product listing with sample product entries.",
                 title: "Product listing",
                 caption:
                     "A grid of products with names, images, and prices as customers browse them.",
             },
             {
-                src: "",
+                src: "/images/productdetails.png",
                 alt: "RazeStore product detail page showing a single item's photos and price.",
                 title: "Product details",
                 caption:
                     "Individual product page with images, description, and the add-to-cart action.",
             },
             {
-                src: "",
+                src: "/images/shoppingcart.png",
                 alt: "RazeStore shopping cart with items ready for checkout.",
                 title: "Shopping cart",
                 caption:
@@ -70,28 +70,28 @@ export const demos: Demo[] = [
         category: "Payments",
         statusKey: "requires-setup",
         status: "Requires setup",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/mpesacheckoutposter.png",
         thumbnailAlt:
             "RazeStore M-Pesa checkout screen requesting an STK Push from the customer.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/mpesacheckout.mp4",
+        posterSrc: "/images/mpesacheckoutposter.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/stkpush.jpeg",
                 alt: "RazeStore checkout screen requesting an M-Pesa STK Push.",
                 title: "Requesting STK Push",
                 caption:
                     "The customer confirms their order and requests an M-Pesa STK Push from the checkout screen.",
             },
             {
-                src: "",
+                src: "/images/successfulpayment.png",
                 alt: "RazeStore order status showing a successful M-Pesa payment.",
                 title: "Successful payment",
                 caption:
                     "When the payment succeeds, the order status updates in the admin. Only shown once a genuine capture is supplied.",
             },
             {
-                src: "",
+                src: "/images/cancelledpayment.png",
                 alt: "RazeStore order status showing a cancelled M-Pesa payment.",
                 title: "Cancelled payment",
                 caption:
@@ -108,42 +108,42 @@ export const demos: Demo[] = [
         category: "Admin",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/ordersadmin.png",
         thumbnailAlt:
             "RazeStore admin order list showing recent orders and their statuses.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/shopmanagement.mp4",
+        posterSrc: "/images/ordersadmin.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/ordersadmin.png",
                 alt: "RazeStore admin order list showing recent orders and their statuses.",
                 title: "Orders",
                 caption:
                     "Review incoming orders, open an order to see its details, and update its status as you fulfil it.",
             },
             {
-                src: "",
+                src: "/images/productsadmin.png",
                 alt: "RazeStore admin product list with names, prices, and stock levels.",
                 title: "Products",
                 caption:
                     "Add, edit, or remove products, upload images, and set prices without touching any code.",
             },
             {
-                src: "",
+                src: "/images/categorisadmin.png",
                 alt: "RazeStore admin category management screen.",
                 title: "Categories",
                 caption:
                     "Organize products into categories so customers can find things quickly on the storefront.",
             },
             {
-                src: "",
+                src: "/images/inventoryadmin.png",
                 alt: "RazeStore admin inventory view showing stock quantities.",
                 title: "Stock and inventory",
                 caption:
                     "See current stock levels and adjust quantities as items sell or get restocked.",
             },
             {
-                src: "",
+                src: "/images/customersadmin.png",
                 alt: "RazeStore admin customer view showing customer details for recent orders.",
                 title: "Customers",
                 caption:
@@ -160,35 +160,35 @@ export const demos: Demo[] = [
         category: "Reports",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/sales.png",
         thumbnailAlt:
             "RazeStore business insights dashboard with sample order and sales summaries.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/businessinsights.mp4",
+        posterSrc: "/images/sales.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/sales.png",
                 alt: "RazeStore sales summary report with sample figures.",
                 title: "Sales summary",
                 caption:
                     "Totals for a chosen period, showing sales value and order count. Figures shown are sample data, not real customer data.",
             },
             {
-                src: "",
+                src: "/images/topproducts.png",
                 alt: "RazeStore top products report with sample figures.",
                 title: "Top products",
                 caption:
                     "Which products sold most in the selected period. Figures shown are sample data, not real customer data.",
             },
             {
-                src: "",
+                src: "/images/ordersstatusoverview.png",
                 alt: "RazeStore order status summary with sample figures.",
                 title: "Order status overview",
                 caption:
                     "A breakdown of recent orders by status. Figures shown are sample data, not real customer data.",
             },
             {
-                src: "",
+                src: "/images/customerai.png",
                 alt: "RazeStore AI assistant panel shown with sample prompts and replies.",
                 title: "AI assistant",
                 caption:
@@ -205,28 +205,28 @@ export const demos: Demo[] = [
         category: "Integrations",
         statusKey: "requires-setup",
         status: "Requires setup",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/tiktokbusiness.png",
         thumbnailAlt:
             "RazeStore admin integration settings screen showing configuration fields.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/integrations.mp4",
+        posterSrc: "/images/tiktokbusiness.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/whatsapadmin.png",
                 alt: "RazeStore admin WhatsApp integration settings screen showing configuration fields.",
                 title: "WhatsApp integration",
                 caption:
                     "Where the WhatsApp Business API credentials, phone number, and message templates are entered. Keys are stored on the server, not shown to customers.",
             },
             {
-                src: "",
+                src: "/images/tiktokbusiness.png",
                 alt: "RazeStore admin social media management screen showing connected platforms and their status.",
                 title: "Social media management",
                 caption:
                     "Where the social accounts you use — Facebook, Instagram, and others — are linked. Each shows whether it is connected, unconfigured, or in error.",
             },
             {
-                src: "",
+                src: "/images/socialmanagement.png",
                 alt: "RazeStore admin TikTok Business integration screen showing configuration fields.",
                 title: "TikTok Business",
                 caption:
@@ -243,28 +243,28 @@ export const demos: Demo[] = [
         category: "Marketing",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/discountsposter.png",
         thumbnailAlt:
             "RazeStore admin discount list showing active and scheduled promotions.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/discount.mp4",
+        posterSrc: "/images/discountsposter.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/discountlist.png",
                 alt: "RazeStore admin discount list showing active and scheduled promotions.",
                 title: "Discount list",
                 caption:
                     "All active, scheduled, and expired discounts in one place, with their code, type, and validity window.",
             },
             {
-                src: "",
+                src: "/images/discountcreate.png",
                 alt: "RazeStore admin create-discount form with code, amount, and date fields.",
                 title: "Create a discount",
                 caption:
                     "Set the code, percentage or fixed amount, which products or categories it applies to, and when it starts and ends.",
             },
             {
-                src: "",
+                src: "/images/discountcheckout.png",
                 alt: "RazeStore storefront checkout showing a discount code applied to the order.",
                 title: "Applying at checkout",
                 caption:
@@ -281,21 +281,21 @@ export const demos: Demo[] = [
         category: "Storefront",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/reviewsposter.png",
         thumbnailAlt:
             "RazeStore admin reviews moderation screen showing recent customer reviews.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/reviews.mp4",
+        posterSrc: "/images/reviewsposter.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/reviewsposter.png",
                 alt: "RazeStore admin reviews moderation screen showing recent customer reviews.",
                 title: "Review moderation",
                 caption:
                     "See incoming reviews with their rating, product, and text, and approve or reject each one before it appears on the storefront.",
             },
             {
-                src: "",
+                src: "/images/productsreviews.png",
                 alt: "RazeStore product page showing approved customer reviews and an average rating.",
                 title: "Reviews on the product page",
                 caption:
@@ -312,21 +312,21 @@ export const demos: Demo[] = [
         category: "Fulfilment",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/shippingzones.png",
         thumbnailAlt:
             "RazeStore admin shipping zones screen showing delivery regions and rates.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/shipping.mp4",
+        posterSrc: "/images/shippingzones.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/shippingzones.png",
                 alt: "RazeStore admin shipping zones screen showing delivery regions and rates.",
                 title: "Shipping zones",
                 caption:
                     "Define the zones you deliver to and the delivery fee for each one.",
             },
             {
-                src: "",
+                src: "/images/checkoutdelivary.png",
                 alt: "RazeStore checkout screen showing the delivery fee for the selected zone.",
                 title: "Delivery at checkout",
                 caption:
@@ -343,21 +343,21 @@ export const demos: Demo[] = [
         category: "Admin",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/customerlist.png",
         thumbnailAlt:
             "RazeStore admin customer list showing names, contact details, and order counts.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/customers.mp4",
+        posterSrc: "/images/customerlist.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/customerlist.png",
                 alt: "RazeStore admin customer list showing names, contact details, and order counts.",
                 title: "Customer list",
                 caption:
                     "Every customer who has placed an order, with their contact details and how many orders they have made.",
             },
             {
-                src: "",
+                src: "/images/customerdetails.png",
                 alt: "RazeStore admin customer detail view showing past orders and delivery addresses.",
                 title: "Customer detail",
                 caption:
@@ -374,21 +374,21 @@ export const demos: Demo[] = [
         category: "Fulfilment",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/returnslist.png",
         thumbnailAlt:
             "RazeStore admin returns list showing return requests and their current status.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/returns.mp4",
+        posterSrc: "/images/returnslist.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/returnslist.png",
                 alt: "RazeStore admin returns list showing return requests and their current status.",
                 title: "Returns list",
                 caption:
                     "All return requests with the order they belong to, the reason given, and where the return is in the resolution process.",
             },
             {
-                src: "",
+                src: "/images/returnsdetails.png",
                 alt: "RazeStore admin return detail view showing the linked order and resolution fields.",
                 title: "Return detail",
                 caption:
@@ -405,21 +405,21 @@ export const demos: Demo[] = [
         category: "Admin",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/suplierlist.png",
         thumbnailAlt:
             "RazeStore admin supplier list showing supplier names and contact details.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/suppliers.mp4",
+        posterSrc: "/images/suplierlist.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/suplierlist.png",
                 alt: "RazeStore admin supplier list showing supplier names and contact details.",
                 title: "Supplier list",
                 caption:
                     "Every supplier you work with, with their contact details and how many products they supply.",
             },
             {
-                src: "",
+                src: "/images/supplierdetail.png",
                 alt: "RazeStore admin supplier detail view linking products to a supplier.",
                 title: "Supplier detail",
                 caption:
@@ -436,21 +436,21 @@ export const demos: Demo[] = [
         category: "Marketing",
         statusKey: "requires-setup",
         status: "Requires setup",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/newsletter.png",
         thumbnailAlt:
             "RazeStore admin newsletter campaigns screen showing subscribers and draft campaigns.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/newsletter.mp4",
+        posterSrc: "/images/newsletter.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/newsletter.png",
                 alt: "RazeStore admin subscriber list showing collected customer emails.",
                 title: "Subscribers",
                 caption:
                     "Every email address collected at checkout, with the date each one was added.",
             },
             {
-                src: "",
+                src: "/images/newslettercampaign.png",
                 alt: "RazeStore admin newsletter campaign composer with subject and body fields.",
                 title: "Compose a campaign",
                 caption:
@@ -467,21 +467,21 @@ export const demos: Demo[] = [
         category: "Storefront",
         statusKey: "available",
         status: "Available",
-        thumbnailSrc: "",
+        thumbnailSrc: "/images/bannerlist.png",
         thumbnailAlt:
             "RazeStore admin banner management screen showing active storefront banners.",
-        videoSrc: "",
-        posterSrc: "",
+        videoSrc: "/videos/banner.mp4",
+        posterSrc: "/images/bannerlist.png",
         screenshots: [
             {
-                src: "",
+                src: "/images/bannerlist.png",
                 alt: "RazeStore admin banner management screen showing active storefront banners.",
                 title: "Banner list",
                 caption:
                     "All banners with their image, headline, and schedule. Reorder them to control which appear first on the storefront.",
             },
             {
-                src: "",
+                src: "/images/bannerstorefront.png",
                 alt: "RazeStore storefront hero with an active banner displayed.",
                 title: "Banner on the storefront",
                 caption:
@@ -490,5 +490,18 @@ export const demos: Demo[] = [
         ],
     },
 ];
+
+export const getDemoBySlug = (slug: string): Demo | undefined =>
+    demos.find((demo) => demo.slug === slug);
+
+export const getDemosByCategory = (category: string): Demo[] =>
+    demos.filter((demo) => demo.category === category);
+
+export const getDemosByStatus = (statusKey: DemoStatus): Demo[] =>
+    demos.filter((demo) => demo.statusKey === statusKey);
+
+export const demoCategories: string[] = Array.from(
+    new Set(demos.map((demo) => demo.category)),
+);
 
 export default demos;

@@ -1,32 +1,33 @@
 import Link from "next/link";
-import DemoViewer from "@/components/demos/VideoViewer";
+import VideoViewer from "@/components/demos/VideoViewer";
 import ScreenshotGallery from "@/components/demos/ScreenshotGallery";
+import type { Screenshot } from "@/components/demos/ScreenshotGallery";
 
 const mpesaMedia = {
-    videoSrc: "/videos/completestorefront.mp4",
-    posterSrc: "/landing/featured-demo-poster.webp",
+    videoSrc: "/videos/mpesacheckout.mp4",
+    posterSrc: "/images/mpesacheckoutposter.png",
     alt: "RazeStore M-Pesa checkout recording showing a cart proceeding to STK Push.",
     caption:
         "Checkout flow: cart, checkout screen, STK Push request, and the order status update in the admin.",
 };
 
-const mpesaScreenshots = [
+const mpesaScreenshots: Screenshot[] = [
     {
-        src: "",
+        src: "/images/stkpush.jpeg",
         alt: "RazeStore checkout screen requesting an M-Pesa STK Push.",
         title: "Requesting STK Push",
         caption:
             "The customer confirms their order and requests an M-Pesa STK Push from the checkout screen.",
     },
     {
-        src: "",
+        src: "/images/successfulpayment.png",
         alt: "RazeStore order status showing a successful M-Pesa payment.",
         title: "Successful payment",
         caption:
             "When the customer enters their M-Pesa PIN and the payment succeeds, the order status updates in the admin. Shown only if a genuine capture is available.",
     },
     {
-        src: "",
+        src: "/images/cancelledpayment.png",
         alt: "RazeStore order status showing a cancelled M-Pesa payment.",
         title: "Cancelled payment",
         caption:
@@ -57,7 +58,10 @@ const flowSteps = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
+    /\D/g,
+    "",
+);
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to ask about M-Pesa checkout setup for a RazeStore shop.",
@@ -92,7 +96,7 @@ export default function MpesaDemoPage() {
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-6 pb-6">
-                <DemoViewer
+                <VideoViewer
                     videoSrc={mpesaMedia.videoSrc}
                     posterSrc={mpesaMedia.posterSrc}
                     alt={mpesaMedia.alt}

@@ -1,37 +1,47 @@
 import Link from "next/link";
+import VideoViewer from "@/components/demos/VideoViewer";
 import ScreenshotGallery from "@/components/demos/ScreenshotGallery";
+import type { Screenshot } from "@/components/demos/ScreenshotGallery";
 
-const adminScreenshots = [
+const adminMedia = {
+    videoSrc: "/videos/shopmanagement.mp4",
+    posterSrc: "/images/ordersadmin.png",
+    alt: "RazeStore admin walkthrough showing orders, products, and stock being managed.",
+    caption:
+        "Admin walkthrough: reviewing incoming orders, editing products, and adjusting stock levels.",
+};
+
+const adminScreenshots: Screenshot[] = [
     {
-        src: "",
+        src: "/images/ordersadmin.png",
         alt: "RazeStore admin order list showing recent orders and their statuses.",
         title: "Orders",
         caption:
             "Review incoming orders, open an order to see its details, and update its status as you fulfil it.",
     },
     {
-        src: "",
+        src: "/images/productsadmin.png",
         alt: "RazeStore admin product list with names, prices, and stock levels.",
         title: "Products",
         caption:
             "Add, edit, or remove products, upload images, and set prices without touching any code.",
     },
     {
-        src: "",
+        src: "/images/categorisadmin.png",
         alt: "RazeStore admin category management screen.",
         title: "Categories",
         caption:
             "Organize products into categories so customers can find things quickly on the storefront.",
     },
     {
-        src: "",
+        src: "/images/inventoryadmin.png",
         alt: "RazeStore admin inventory view showing stock quantities.",
         title: "Stock and inventory",
         caption:
             "See current stock levels and adjust quantities as items sell or get restocked.",
     },
     {
-        src: "",
+        src: "/images/customersadmin.png",
         alt: "RazeStore admin customer view showing customer details for recent orders.",
         title: "Customers",
         caption:
@@ -91,7 +101,10 @@ const conditionalFeatures: Feature[] = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
+    /\D/g,
+    "",
+);
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to discuss the RazeStore admin and what can be customized for my shop.",
@@ -155,6 +168,19 @@ export default function ShopManagementDemoPage() {
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-6 pb-6">
+                <VideoViewer
+                    videoSrc={adminMedia.videoSrc}
+                    posterSrc={adminMedia.posterSrc}
+                    alt={adminMedia.alt}
+                    caption={adminMedia.caption}
+                />
+                <p className="mt-2 text-xs text-slate-600">
+                    The recording above uses sample data from a demonstration shop. It is not
+                    a live shop or real customer information.
+                </p>
+            </section>
+
+            <section className="mx-auto w-full max-w-7xl px-6 pb-6">
                 <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
@@ -168,9 +194,10 @@ export default function ShopManagementDemoPage() {
                             </li>
                             <li>
                                 Core features described below are part of the current build.
-                                Features marked <span className="font-semibold">Confirm scope</span>{" "}
-                                may be supported depending on what is agreed, and are not
-                                presented as already delivered.
+                                Features marked{" "}
+                                <span className="font-semibold">Confirm scope</span> may be
+                                supported depending on what is agreed, and are not presented as
+                                already delivered.
                             </li>
                             <li>
                                 The final admin you receive is customized for your shop, so the
@@ -260,7 +287,7 @@ export default function ShopManagementDemoPage() {
 
             <section className="border-t border-slate-200 bg-white">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-4">
+                    <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
                         <div className="flex flex-col space-y-1.5">
                             <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                                 Want the admin customized for your shop?

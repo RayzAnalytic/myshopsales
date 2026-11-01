@@ -291,18 +291,18 @@ export default function FeaturesSection() {
                     {(Object.keys(statusLabels) as FeatureStatus[]).map((status) => (
                         <span
                             key={status}
-                            className={`inline-flex items-center rounded border px-2 py-0.5 text-[11px] font-semibold uppercase tracking-widest ${statusClasses[status]}`}
+                            className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusClasses[status]}`}
                         >
                             {statusLabels[status]}
                         </span>
                     ))}
                 </div>
 
-                <ul className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+                <ul className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature) => (
                         <li
                             key={feature.title}
-                            className="flex flex-col space-y-1.5 rounded border border-slate-200 bg-white p-4"
+                            className="flex flex-col space-y-1.5 rounded border border-slate-200 bg-white p-3"
                         >
                             <div className="flex items-center justify-between gap-2">
                                 <span
@@ -312,7 +312,7 @@ export default function FeaturesSection() {
                                     {feature.icon}
                                 </span>
                                 <span
-                                    className={`inline-flex items-center rounded border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusClasses[feature.status]}`}
+                                    className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusClasses[feature.status]}`}
                                 >
                                     {statusLabels[feature.status]}
                                 </span>
@@ -345,7 +345,7 @@ export default function FeaturesSection() {
                     ))}
                 </ul>
 
-                <p className="mt-6 max-w-3xl text-xs text-slate-600">
+                <p className="mt-3 max-w-3xl text-xs text-slate-600">
                     The final set of features in your shop is confirmed with you before
                     handover. Anything not agreed in writing is out of scope, and any
                     feature that depends on a third-party service is described as working

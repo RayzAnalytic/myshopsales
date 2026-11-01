@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export type Screenshot = {
     src: string;
@@ -19,16 +19,24 @@ type ScreenshotGalleryProps = {
 type ScreenshotThumbProps = {
     shot: Screenshot;
     onOpen: () => void;
+    index: number;
+    total: number;
 };
 
-function ScreenshotThumb({ shot, onOpen }: ScreenshotThumbProps) {
-    const [broken, setBroken] = useState(false);
+function ScreenshotThumb({ shot, onOpen, index, total }: ScreenshotThumbProps) {
+    const [brokenSrc, setBrokenSrc] = useState<string | null>(null);
     const hasSource = Boolean(shot.src);
+    const broken = brokenSrc === shot.src;
 
     return (
         <button
             type="button"
             onClick={onOpen}
+            aria-label={
+                shot.title
+                    ? `Open screenshot ${index + 1} of ${total}: ${shot.title}`
+                    : `Open screenshot ${index + 1} of ${total}`
+            }
             className="group flex h-full w-full flex-col overflow-hidden rounded border border-slate-200 bg-white text-left transition-colors hover:border-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
         >
             <div className="relative aspect-video w-full flex-none bg-slate-50">
@@ -44,8 +52,8 @@ function ScreenshotThumb({ shot, onOpen }: ScreenshotThumbProps) {
                         alt={shot.alt}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover"
-                        onError={() => setBroken(true)}
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                        onError={() => setBrokenSrc(shot.src)}
                     />
                 )}
             </div>
@@ -58,9 +66,7 @@ function ScreenshotThumb({ shot, onOpen }: ScreenshotThumbProps) {
                         </h3>
                     ) : null}
                     {shot.caption ? (
-                        <p className="text-xs text-slate-700">
-                            {shot.caption}
-                        </p>
+                        <p className="text-xs text-slate-700">{shot.caption}</p>
                     ) : null}
                 </div>
             ) : null}
@@ -71,13 +77,25 @@ function ScreenshotThumb({ shot, onOpen }: ScreenshotThumbProps) {
 type ScreenshotModalProps = {
     shot: Screenshot;
     onClose: () => void;
+    onPrev: () => void;
+    onNext: () => void;
+    index: number;
+    total: number;
 };
 
-function ScreenshotModal({ shot, onClose }: ScreenshotModalProps) {
-    const [broken, setBroken] = useState(false);
+function ScreenshotModal({
+    shot,
+    onClose,
+    onPrev,
+    onNext,
+    index,
+    total,
+}: ScreenshotModalProps) {
+    const [brokenSrc, setBrokenSrc] = useState<string | null>(null);
     const closeRef = useRef<HTMLButtonElement | null>(null);
     const dialogRef = useRef<HTMLDivElement | null>(null);
     const hasSource = Boolean(shot.src);
+    const broken = brokenSrc === shot.src;
 
     useEffect(() => {
         closeRef.current?.focus();
@@ -86,7 +104,18 @@ function ScreenshotModal({ shot, onClose }: ScreenshotModalProps) {
     useEffect(() => {
         function handleKey(event: KeyboardEvent) {
             if (event.key === "Escape") {
+                event.preventDefault();
                 onClose();
+                return;
+            }
+            if (event.key === "ArrowLeft") {
+                event.preventDefault();
+                onPrev();
+                return;
+            }
+            if (event.key === "ArrowRight") {
+                event.preventDefault();
+                onNext();
                 return;
             }
             if (event.key !== "Tab") return;
@@ -114,13 +143,19 @@ function ScreenshotModal({ shot, onClose }: ScreenshotModalProps) {
 
         document.addEventListener("keydown", handleKey);
         return () => document.removeEventListener("keydown", handleKey);
-    }, [onClose]);
+    }, [onClose, onPrev, onNext]);
+
+    const showNav = total > 1;
 
     return (
         <div
             role="dialog"
             aria-modal="true"
-            aria-label={shot.title ? `Enlarged view: ${shot.title}` : "Enlarged screenshot"}
+            aria-label={
+                shot.title
+                    ? `Enlarged view: ${shot.title}`
+                    : "Enlarged screenshot"
+            }
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
             <div
@@ -131,11 +166,16 @@ function ScreenshotModal({ shot, onClose }: ScreenshotModalProps) {
 
             <div
                 ref={dialogRef}
-                className="relative z-10 flex max-h-full w-full max-w-4xl flex-col overflow-hidden rounded border border-slate-200 bg-white"
+                className="relative z-10 flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded border border-slate-200 bg-white"
             >
                 <div className="flex items-center justify-between gap-2 border-b border-slate-200 px-3 py-2">
-                    <span className="text-sm font-semibold text-blue-950">
-                        {shot.title ?? "Screenshot"}
+                    <span className="flex items-center gap-2 text-sm font-semibold text-blue-950">
+                        <span>{shot.title ?? "Screenshot"}</span>
+                        {showNav ? (
+                            <span className="text-xs font-normal text-slate-500">
+                                {index + 1} / {total}
+                            </span>
+                        ) : null}
                     </span>
                     <button
                         ref={closeRef}
@@ -158,7 +198,7 @@ function ScreenshotModal({ shot, onClose }: ScreenshotModalProps) {
                     </button>
                 </div>
 
-                <div className="relative aspect-video w-full overflow-auto bg-slate-50">
+                <div className="relative h-[60vh] max-h-[800px] w-full bg-slate-50">
                     {!hasSource || broken ? (
                         <div className="flex h-full w-full items-center justify-center p-4">
                             <span className="text-center text-sm text-slate-500">
@@ -170,11 +210,54 @@ function ScreenshotModal({ shot, onClose }: ScreenshotModalProps) {
                             src={shot.src}
                             alt={shot.alt}
                             fill
-                            sizes="(min-width: 1024px) 900px, 100vw"
+                            sizes="(min-width: 1024px) 960px, 100vw"
                             className="object-contain"
-                            onError={() => setBroken(true)}
+                            onError={() => setBrokenSrc(shot.src)}
                         />
                     )}
+
+                    {showNav ? (
+                        <>
+                            <button
+                                type="button"
+                                onClick={onPrev}
+                                aria-label="Previous screenshot"
+                                className="absolute left-3 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-blue-950 shadow ring-1 ring-slate-200 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            >
+                                <svg
+                                    aria-hidden="true"
+                                    viewBox="0 0 24 24"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={onNext}
+                                aria-label="Next screenshot"
+                                className="absolute right-3 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-blue-950 shadow ring-1 ring-slate-200 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            >
+                                <svg
+                                    aria-hidden="true"
+                                    viewBox="0 0 24 24"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M9 6l6 6-6 6" />
+                                </svg>
+                            </button>
+                        </>
+                    ) : null}
                 </div>
 
                 {shot.caption ? (
@@ -194,6 +277,29 @@ export default function ScreenshotGallery({
 }: ScreenshotGalleryProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const lastFocusRef = useRef<HTMLElement | null>(null);
+    const total = screenshots?.length ?? 0;
+
+    const close = useCallback(() => setOpenIndex(null), []);
+
+    const prev = useCallback(() => {
+        setOpenIndex((current) => {
+            if (current === null || total === 0) return current;
+            return (current - 1 + total) % total;
+        });
+    }, [total]);
+
+    const next = useCallback(() => {
+        setOpenIndex((current) => {
+            if (current === null || total === 0) return current;
+            return (current + 1) % total;
+        });
+    }, [total]);
+
+    useEffect(() => {
+        if (openIndex !== null && total > 0 && openIndex >= total) {
+            setOpenIndex(null);
+        }
+    }, [openIndex, total]);
 
     useEffect(() => {
         if (openIndex !== null) {
@@ -220,7 +326,10 @@ export default function ScreenshotGallery({
         );
     }
 
-    const active = openIndex !== null ? screenshots[openIndex] : null;
+    const active =
+        openIndex !== null && openIndex < screenshots.length
+            ? screenshots[openIndex]
+            : null;
 
     return (
         <div className={className}>
@@ -229,6 +338,8 @@ export default function ScreenshotGallery({
                     <li key={`${shot.src}-${index}`} className="h-full">
                         <ScreenshotThumb
                             shot={shot}
+                            index={index}
+                            total={screenshots.length}
                             onOpen={() => setOpenIndex(index)}
                         />
                     </li>
@@ -238,7 +349,11 @@ export default function ScreenshotGallery({
             {active ? (
                 <ScreenshotModal
                     shot={active}
-                    onClose={() => setOpenIndex(null)}
+                    onClose={close}
+                    onPrev={prev}
+                    onNext={next}
+                    index={openIndex ?? 0}
+                    total={screenshots.length}
                 />
             ) : null}
         </div>

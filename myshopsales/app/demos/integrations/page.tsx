@@ -1,23 +1,24 @@
 import Link from "next/link";
 import ScreenshotGallery from "@/components/demos/ScreenshotGallery";
+import type { Screenshot } from "@/components/demos/ScreenshotGallery";
 
-const integrationScreenshots = [
+const integrationScreenshots: Screenshot[] = [
     {
-        src: "",
+        src: "/images/whatsapadmin.png",
         alt: "RazeStore admin WhatsApp integration settings screen showing configuration fields.",
         title: "WhatsApp integration",
         caption:
             "Where the WhatsApp Business API credentials, phone number, and message templates are entered. Keys are stored on the server, not shown to customers.",
     },
     {
-        src: "",
+        src: "/images/tiktokbusiness.png",
         alt: "RazeStore admin social media management screen showing connected platforms and their status.",
         title: "Social media management",
         caption:
             "Where the social accounts you use — Facebook, Instagram, and others — are linked. Each shows whether it is connected, unconfigured, or in error.",
     },
     {
-        src: "",
+        src: "/images/socialmanagement.png",
         alt: "RazeStore admin TikTok Business integration screen showing configuration fields.",
         title: "TikTok Business",
         caption:
@@ -143,7 +144,10 @@ const statusClasses: Record<IntegrationStatus, string> = {
     "requires-setup": "border-slate-400 bg-slate-50 text-slate-700",
 };
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
+    /\D/g,
+    "",
+);
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to discuss which integrations can be set up for my RazeStore shop.",

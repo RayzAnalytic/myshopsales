@@ -1,32 +1,33 @@
 import Link from "next/link";
-import DemoViewer from "@/components/demos/VideoViewer";
+import VideoViewer from "@/components/demos/VideoViewer";
 import ScreenshotGallery from "@/components/demos/ScreenshotGallery";
+import type { Screenshot } from "@/components/demos/ScreenshotGallery";
 
 const storefrontMedia = {
     videoSrc: "/videos/completestorefront.mp4",
-    posterSrc: "/landing/featured-demo-poster.webp",
+    posterSrc: "/images/storefrontposter.png",
     alt: "RazeStore online shop storefront showing product listings and navigation.",
     caption:
         "Storefront view: product listings, categories, and search as a customer sees them.",
 };
 
-const galleryScreenshots = [
+const galleryScreenshots: Screenshot[] = [
     {
-        src: "",
+        src: "/images/productlisting.png",
         alt: "RazeStore online shop product listing with real product entries.",
         title: "Product listing",
         caption:
             "A grid of products with names, images, and prices as customers browse them.",
     },
     {
-        src: "",
+        src: "/images/productdetails.png",
         alt: "RazeStore product detail page showing a single item's photos and price.",
         title: "Product details",
         caption:
             "Individual product page with images, description, and the add-to-cart action.",
     },
     {
-        src: "",
+        src: "/images/shoppingcart.png",
         alt: "RazeStore shopping cart with items ready for checkout.",
         title: "Shopping cart",
         caption:
@@ -53,7 +54,10 @@ const shoppingSteps = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
+    /\D/g,
+    "",
+);
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'm interested in a RazeStore online shop for my electronics business.",
@@ -86,7 +90,7 @@ export default function OnlineShopDemoPage() {
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-6 pb-6">
-                <DemoViewer
+                <VideoViewer
                     videoSrc={storefrontMedia.videoSrc}
                     posterSrc={storefrontMedia.posterSrc}
                     alt={storefrontMedia.alt}
@@ -164,7 +168,9 @@ export default function OnlineShopDemoPage() {
                     </div>
                     <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
                         <li>
-                            <strong className="text-blue-950">Business name and branding:</strong>{" "}
+                            <strong className="text-blue-950">
+                                Business name and branding:
+                            </strong>{" "}
                             your shop name, logo, and colors are used across the storefront.
                         </li>
                         <li>
@@ -177,9 +183,9 @@ export default function OnlineShopDemoPage() {
                             shop is served on a domain you own, once it is set up on Vercel.
                         </li>
                         <li>
-                            <strong className="text-blue-950">Your credentials:</strong> checkout
-                            and other integrations use accounts you control, configured and
-                            tested before handover.
+                            <strong className="text-blue-950">Your credentials:</strong>{" "}
+                            checkout and other integrations use accounts you control, configured
+                            and tested before handover.
                         </li>
                     </ul>
                 </div>
@@ -221,8 +227,9 @@ export default function OnlineShopDemoPage() {
                                 Want this shop customized for your business?
                             </h2>
                             <p className="max-w-2xl text-sm text-slate-700">
-                                Share your shop on WhatsApp and we will walk through how the online
-                                shop would look with your own products, branding, and domain.
+                                Share your shop on WhatsApp and we will walk through how the
+                                online shop would look with your own products, branding, and
+                                domain.
                             </p>
                             <div className="flex flex-col gap-2 pt-1 sm:flex-row">
                                 <a
