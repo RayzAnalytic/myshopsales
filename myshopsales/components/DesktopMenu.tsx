@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { NavItem } from "@/components/Navbar";
 
@@ -8,7 +9,28 @@ type DesktopMenuProps = {
     items: NavItem[];
 };
 
+function isActivePath(pathname: string, href: string): boolean {
+    if (href.includes("#")) return false;
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function triggerOrLinkClasses(active: boolean): string {
+    const base =
+        "inline-flex items-center gap-1 rounded px-2 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+    return active
+        ? `${base} bg-blue-900 text-white`
+        : `${base} text-slate-200 hover:bg-blue-900 hover:text-white`;
+}
+
+function panelLinkClasses(active: boolean): string {
+    const base =
+        "block rounded px-2 py-1.5 text-sm transition-colors focus-visible:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950";
+    return active ? `${base} bg-slate-100` : `${base} hover:bg-slate-50`;
+}
+
 export default function DesktopMenu({ items }: DesktopMenuProps) {
+    const pathname = usePathname() ?? "/";
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const menuRef = useRef<HTMLDivElement | null>(null);
     const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -47,19 +69,19 @@ export default function DesktopMenu({ items }: DesktopMenuProps) {
         setOpenIndex((current) => (current === index ? null : index));
     }
 
-    function focusFirstItem(index: number) {
+    function getPanelLinks(index: number): HTMLAnchorElement[] {
         const panel = panelRefs.current[index];
-        if (!panel) return;
-        const first = panel.querySelector<HTMLAnchorElement>("a[href]");
-        first?.focus();
+        if (!panel) return [];
+        return Array.from(panel.querySelectorAll<HTMLAnchorElement>("a[href]"));
+    }
+
+    function focusFirstItem(index: number) {
+        getPanelLinks(index)[0]?.focus();
     }
 
     function focusLastItem(index: number) {
-        const panel = panelRefs.current[index];
-        if (!panel) return;
-        const links = panel.querySelectorAll<HTMLAnchorElement>("a[href]");
-        const last = links[links.length - 1];
-        last?.focus();
+        const links = getPanelLinks(index);
+        links[links.length - 1]?.focus();
     }
 
     function handleTriggerKeyDown(
@@ -68,25 +90,14 @@ export default function DesktopMenu({ items }: DesktopMenuProps) {
     ) {
         if (event.key === "ArrowDown") {
             event.preventDefault();
-            if (openIndex !== index) {
-                setOpenIndex(index);
-            }
+            if (openIndex !== index) setOpenIndex(index);
             window.requestAnimationFrame(() => focusFirstItem(index));
             return;
         }
         if (event.key === "ArrowUp") {
             event.preventDefault();
-            if (openIndex !== index) {
-                setOpenIndex(index);
-            }
+            if (openIndex !== index) setOpenIndex(index);
             window.requestAnimationFrame(() => focusLastItem(index));
-            return;
-        }
-        if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-            return;
-        }
-        if (event.key === "Tab" && openIndex === index) {
-            closeAll();
         }
     }
 
@@ -94,26 +105,37 @@ export default function DesktopMenu({ items }: DesktopMenuProps) {
         event: React.KeyboardEvent<HTMLDivElement>,
         index: number,
     ) {
-        if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
-        event.preventDefault();
-
-        const panel = panelRefs.current[index];
-        if (!panel) return;
-        const links = Array.from(panel.querySelectorAll<HTMLAnchorElement>("a[href]"));
+        const links = getPanelLinks(index);
         if (links.length === 0) return;
 
-        const currentIndex = links.indexOf(document.activeElement as HTMLAnchorElement);
-        let nextIndex = 0;
-        if (event.key === "ArrowDown") {
-            nextIndex = currentIndex < links.length - 1 ? currentIndex + 1 : 0;
-        } else {
-            nextIndex = currentIndex > 0 ? currentIndex - 1 : links.length - 1;
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+            const currentIndex = links.indexOf(
+                document.activeElement as HTMLAnchorElement,
+            );
+            let nextIndex = 0;
+            if (event.key === "ArrowDown") {
+                nextIndex = currentIndex < links.length - 1 ? currentIndex + 1 : 0;
+            } else {
+                nextIndex = currentIndex > 0 ? currentIndex - 1 : links.length - 1;
+            }
+            links[nextIndex]?.focus();
+            return;
         }
-        links[nextIndex]?.focus();
+
+        if (event.key === "Home") {
+            event.preventDefault();
+            links[0]?.focus();
+            return;
+        }
+        if (event.key === "End") {
+            event.preventDefault();
+            links[links.length - 1]?.focus();
+        }
     }
 
     function handleWrapperBlur(
-        event: React.FocusEvent<HTMLDivElement>,
+        event: React.FocusEvent<HTMLElement>,
         index: number,
     ) {
         if (openIndex !== index) return;
@@ -133,12 +155,15 @@ export default function DesktopMenu({ items }: DesktopMenuProps) {
         <div ref={menuRef}>
             <ul className="flex items-center gap-1">
                 {items.map((item, index) => {
+                    const itemActive = isActivePath(pathname, item.href);
+
                     if (!item.children || item.children.length === 0) {
                         return (
                             <li key={item.href}>
                                 <Link
                                     href={item.href}
-                                    className="inline-flex items-center rounded px-2 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-blue-900 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                    aria-current={itemActive ? "page" : undefined}
+                                    className={triggerOrLinkClasses(itemActive)}
                                 >
                                     {item.label}
                                 </Link>
@@ -166,8 +191,10 @@ export default function DesktopMenu({ items }: DesktopMenuProps) {
                                 aria-haspopup="true"
                                 aria-controls={panelId}
                                 onClick={() => toggle(index)}
-                                onKeyDown={(event) => handleTriggerKeyDown(event, index)}
-                                className="inline-flex items-center gap-1 rounded px-2 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-blue-900 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                onKeyDown={(event) =>
+                                    handleTriggerKeyDown(event, index)
+                                }
+                                className={triggerOrLinkClasses(itemActive || isOpen)}
                             >
                                 <span>{item.label}</span>
                                 <svg
@@ -190,28 +217,43 @@ export default function DesktopMenu({ items }: DesktopMenuProps) {
                                         panelRefs.current[index] = element;
                                     }}
                                     aria-labelledby={triggerId}
-                                    onKeyDown={(event) => handlePanelKeyDown(event, index)}
-                                    className="absolute left-0 top-full z-50 mt-1 w-72 rounded border border-slate-200 bg-white p-2 shadow-lg"
+                                    onKeyDown={(event) =>
+                                        handlePanelKeyDown(event, index)
+                                    }
+                                    className="absolute left-0 top-full z-50 mt-1 max-h-[calc(100vh-6rem)] w-72 overflow-y-auto overscroll-contain rounded border border-slate-200 bg-white p-2 shadow-lg sm:w-80"
                                 >
                                     <ul className="flex flex-col space-y-1">
-                                        {item.children.map((child) => (
-                                            <li key={child.href}>
-                                                <Link
-                                                    href={child.href}
-                                                    onClick={closeAll}
-                                                    className="block rounded px-2 py-1.5 text-sm text-slate-800 transition-colors hover:bg-slate-50 focus-visible:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
-                                                >
-                                                    <span className="block font-medium text-blue-950">
-                                                        {child.label}
-                                                    </span>
-                                                    {child.description ? (
-                                                        <span className="mt-0.5 block text-xs text-slate-600">
-                                                            {child.description}
+                                        {item.children.map((child) => {
+                                            const childActive = isActivePath(
+                                                pathname,
+                                                child.href,
+                                            );
+                                            return (
+                                                <li key={child.href}>
+                                                    <Link
+                                                        href={child.href}
+                                                        onClick={closeAll}
+                                                        aria-current={
+                                                            childActive
+                                                                ? "page"
+                                                                : undefined
+                                                        }
+                                                        className={panelLinkClasses(
+                                                            childActive,
+                                                        )}
+                                                    >
+                                                        <span className="block font-medium text-blue-950">
+                                                            {child.label}
                                                         </span>
-                                                    ) : null}
-                                                </Link>
-                                            </li>
-                                        ))}
+                                                        {child.description ? (
+                                                            <span className="mt-0.5 block text-xs text-slate-600">
+                                                                {child.description}
+                                                            </span>
+                                                        ) : null}
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </div>
                             ) : null}

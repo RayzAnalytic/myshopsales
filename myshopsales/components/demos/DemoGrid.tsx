@@ -40,26 +40,25 @@ function matchesSearch(item: DemoItem, query: string) {
     return haystack.includes(q);
 }
 
-function sortItems(items: DemoItem[], sortBy: NonNullable<DemoGridProps["sortBy"]>) {
+function sortItems(
+    items: DemoItem[],
+    sortBy: NonNullable<DemoGridProps["sortBy"]>,
+) {
     if (sortBy === "default") return items;
+    const collator = new Intl.Collator("en", { sensitivity: "base" });
     const copy = [...items];
     if (sortBy === "title") {
         copy.sort((a, b) =>
-            (a.title ?? a.slug).localeCompare(b.title ?? b.slug, undefined, {
-                sensitivity: "base",
-            }),
+            collator.compare(a.title ?? a.slug, b.title ?? b.slug),
         );
     } else if (sortBy === "category") {
         copy.sort((a, b) => {
-            const catCompare = (a.category ?? "").localeCompare(
+            const catCompare = collator.compare(
+                a.category ?? "",
                 b.category ?? "",
-                undefined,
-                { sensitivity: "base" },
             );
             if (catCompare !== 0) return catCompare;
-            return (a.title ?? a.slug).localeCompare(b.title ?? b.slug, {
-                sensitivity: "base",
-            });
+            return collator.compare(a.title ?? a.slug, b.title ?? b.slug);
         });
     }
     return copy;
@@ -150,10 +149,7 @@ export default function DemoGrid({
     return (
         <div className={className}>
             {showCount ? (
-                <p
-                    className="mb-2 text-xs text-slate-600"
-                    aria-live="polite"
-                >
+                <p className="mb-2 text-xs text-slate-600" aria-live="polite">
                     Showing {visible.length} of {total} demo
                     {total === 1 ? "" : "s"}
                     {hasFilters ? " (filtered)" : ""}

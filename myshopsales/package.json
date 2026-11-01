@@ -14,7 +14,8 @@
     "react-dom": "19.3.0"
   },
   "allowScripts": {
-    "sharp": true
+    "sharp": true,
+    "unrs-resolver": true
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
