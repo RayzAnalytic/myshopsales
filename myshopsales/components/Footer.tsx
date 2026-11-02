@@ -1,20 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const WHATSAPP_NUMBER = "254116103872";
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to learn more about RazeStore for my business.",
 );
 
-const whatsappHref = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-    : `https://wa.me/?text=${whatsappMessage}`;
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
 const siteLinks = [
     { label: "Home", href: "/" },
@@ -46,7 +42,7 @@ export default function Footer() {
                         <div className="flex items-center gap-2">
                             <Image
                                 src="/logo.jpeg"
-                                alt="RazeStore logo"
+                                alt=""
                                 width={36}
                                 height={36}
                                 className="h-9 w-9 rounded-sm object-contain"
@@ -56,25 +52,28 @@ export default function Footer() {
                             </span>
                         </div>
                         <p className="max-w-sm text-sm text-slate-200">
-                            A customizable e-commerce website built for Kenyan electronics shop
-                            owners. Own your store, sell on your own domain, and manage orders
-                            without touching code.
+                            A customizable e-commerce website built for Kenyan
+                            electronics shop owners. Own your store, sell on your
+                            own domain, and manage orders without touching code.
                         </p>
                     </div>
 
-                    <nav aria-label="Footer" className="flex flex-col space-y-1.5 lg:col-span-2">
+                    <nav
+                        aria-label="Footer"
+                        className="flex flex-col space-y-1.5 lg:col-span-2"
+                    >
                         <h2 className="text-[11px] font-semibold uppercase text-slate-400">
                             Site
                         </h2>
                         <ul className="flex flex-col space-y-1">
                             {siteLinks.map((link) => (
                                 <li key={link.href}>
-                                    <a
+                                    <Link
                                         href={link.href}
                                         className="inline-flex rounded px-1 py-1 text-sm text-slate-200 transition-colors hover:bg-blue-900 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                     >
                                         {link.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -90,12 +89,12 @@ export default function Footer() {
                         <ul className="flex flex-col space-y-1">
                             {demoLinks.map((link) => (
                                 <li key={link.href}>
-                                    <a
+                                    <Link
                                         href={link.href}
                                         className="inline-flex rounded px-1 py-1 text-sm text-slate-200 transition-colors hover:bg-blue-900 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                     >
                                         {link.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -106,8 +105,8 @@ export default function Footer() {
                             Contact
                         </h2>
                         <p className="text-sm text-slate-200">
-                            The fastest way to reach us is on WhatsApp. Ask about pricing,
-                            demos, and what fits your shop.
+                            The fastest way to reach us is on WhatsApp. Ask about
+                            pricing, demos, and what fits your shop.
                         </p>
                         <a
                             href={whatsappHref}
@@ -123,14 +122,19 @@ export default function Footer() {
                 <div className="mt-4 border-t border-blue-900 pt-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-xs text-slate-300">
-                            Third-party integrations such as M-Pesa, email, WhatsApp, AI, and
-                            social platforms depend on configuration, credentials, and account
-                            access, and are confirmed with you before they are enabled. Any
-                            third-party fees are set and charged by those providers.
+                            Third-party integrations such as M-Pesa, email,
+                            WhatsApp, AI, and social platforms depend on
+                            configuration, credentials, and account access, and are
+                            confirmed with you before they are enabled. Any
+                            third-party fees are set and charged by those
+                            providers.
                         </p>
                         <p className="text-xs text-slate-300">
                             ©{" "}
-                            <span suppressHydrationWarning className="inline-block min-w-[2.5ch]">
+                            <span
+                                suppressHydrationWarning
+                                className="inline-block min-w-[2.5ch]"
+                            >
                                 {year}
                             </span>{" "}
                             RazeStore. All rights reserved.
