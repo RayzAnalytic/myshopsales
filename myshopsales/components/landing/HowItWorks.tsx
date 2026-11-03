@@ -116,12 +116,12 @@ export default function HowItWorks() {
                         anything is agreed.
                     </p>
                     <div className="pt-1">
-                        <WhatsAppButton
+                        {/*<WhatsAppButton
                             message="Hi, I'd like to discuss getting a RazeStore online shop for my business."
                             variant="primary"
                         >
                             Chat on WhatsApp
-                        </WhatsAppButton>
+                        </WhatsAppButton>*/}
                     </div>
                 </div>
             </div>

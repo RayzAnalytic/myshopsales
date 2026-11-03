@@ -118,12 +118,12 @@ export default function Navbar() {
         <header className="sticky top-0 z-40 border-b border-blue-900 bg-blue-950">
             <nav
                 aria-label="Primary"
-                className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6"
+                className="mx-auto flex w-full max-w-7xl items-center gap-3 px-4 py-3 sm:px-6"
             >
                 <Link
                     href="/"
                     aria-label="RazeStore home"
-                    className="flex items-center gap-1 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="flex items-center gap-13 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                     <Image
                         src="/logo.jpeg"

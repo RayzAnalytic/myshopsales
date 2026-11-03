@@ -93,12 +93,12 @@ export default function PricingSection() {
                 </div>
 
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
-                    <WhatsAppButton
+                    {/*<WhatsAppButton
                         message="Hi, I'd like to confirm the current RazeStore price and what it includes."
                         variant="primary"
                     >
                         Chat on WhatsApp
-                    </WhatsAppButton>
+                    </WhatsAppButton>*/}
                     <Link
                         href="/pricing"
                         className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"

@@ -10,6 +10,66 @@ const whatsappHref = whatsappNumber
     ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
     : `https://wa.me/?text=${whatsappMessage}`;
 
+const marketLevels = [
+    {
+        name: "Starter online shop",
+        price: "KES 40,000–100,000",
+        features: [
+            "Basic product catalogue",
+            "Shopping cart",
+            "Simple checkout",
+            "Basic order management",
+            "Mobile-friendly design",
+        ],
+    },
+    {
+        name: "Standard online shop",
+        price: "KES 100,000–250,000",
+        features: [
+            "Advanced product catalogue",
+            "M-Pesa payment integration",
+            "Customer accounts",
+            "Inventory management",
+            "Order management",
+            "Admin dashboard",
+        ],
+        highlighted: true,
+    },
+    {
+        name: "Advanced e-commerce system",
+        price: "KES 250,000–600,000",
+        features: [
+            "Custom shopping functionality",
+            "Advanced inventory and reporting",
+            "Multiple integrations",
+            "Complex delivery workflows",
+            "Advanced administration",
+        ],
+    },
+    {
+        name: "Enterprise e-commerce platform",
+        price: "KES 600,000–1,500,000+",
+        features: [
+            "Complex business operations",
+            "ERP and external system integrations",
+            "Multi-branch operations",
+            "High-volume infrastructure",
+            "Advanced automation and reporting",
+        ],
+    },
+];
+
+const razeStoreFeatures = [
+    "Existing developed storefront.",
+    "Shopping cart and checkout.",
+    "M-Pesa checkout functionality.",
+    "Customer accounts.",
+    "Inventory and order management.",
+    "Administration dashboard.",
+    "Business-specific customization and deployment.",
+    "Agreed handover and management support.",
+];
+
 const inclusions = [
     "Domain setup on a domain you provide or register.",
     "Agreed M-Pesa integration setup within the confirmed scope.",
@@ -99,15 +159,14 @@ export default function PricingPage() {
                 <div className="mt-4 rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
-                            Planned price
+                            One-time price
                         </p>
                         <p className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Shared privately on WhatsApp
+                            KES 190,000
                         </p>
                         <p className="text-sm text-slate-700">
-                            The current planned price and exact inclusions are shared with you
-                            directly. Final pricing is subject to confirmation based on your
-                            agreed scope.
+                            RazeStore is positioned within the standard e-commerce category.
+                            Final pricing is subject to confirmation based on your agreed scope.
                         </p>
                         <div className="flex flex-col gap-2 pt-1 sm:flex-row">
                             <a
@@ -129,7 +188,117 @@ export default function PricingPage() {
                 </div>
             </section>
 
+            <section className="border-t border-slate-200 bg-slate-50">
+                <div className="mx-auto w-full max-w-7xl px-6 py-6">
+                    <div className="flex flex-col space-y-1.5">
+                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                            How much does an e-commerce website cost in Kenya?
+                        </h2>
+                        <p className="max-w-3xl text-sm text-slate-700">
+                            The purpose of this section is not to push every visitor toward the
+                            cheapest website. It is to help you understand that e-commerce
+                            websites differ in functionality, complexity, and cost, so you can
+                            choose the level that matches your business.
+                        </p>
+                    </div>
+
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        {marketLevels.map((level) => (
+                            <div
+                                key={level.name}
+                                className={
+                                    level.highlighted
+                                        ? "flex flex-col rounded border border-green-600 bg-white p-4"
+                                        : "flex flex-col rounded border border-slate-200 bg-white p-4"
+                                }
+                            >
+                                {level.highlighted ? (
+                                    <p className="text-[11px] font-semibold uppercase text-green-700">
+                                        RazeStore category
+                                    </p>
+                                ) : (
+                                    <p className="text-[11px] font-semibold uppercase text-slate-500">
+                                        Market level
+                                    </p>
+                                )}
+                                <h3 className="mt-1 text-base font-semibold text-blue-950">
+                                    {level.name}
+                                </h3>
+                                <p className="mt-1 text-sm font-semibold text-green-700">
+                                    {level.price}
+                                </p>
+                                <ul className="mt-2 flex flex-col space-y-1.5 text-sm text-slate-800">
+                                    {level.features.map((feature) => (
+                                        <li key={feature} className="flex items-start gap-2">
+                                            <span
+                                                aria-hidden="true"
+                                                className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-slate-400"
+                                            />
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-700">
+                        <p>
+                            These are planning estimates, not official market tariffs.
+                            Published developer prices vary considerably depending on
+                            functionality and implementation.
+                        </p>
+                        <p>
+                            The feature groupings above are illustrative, not guaranteed
+                            packages at every price point.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <section className="border-t border-slate-200">
+                <div className="mx-auto w-full max-w-7xl px-6 py-6">
+                    <div className="flex flex-col space-y-1.5">
+                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                            Where RazeStore fits
+                        </h2>
+                        <p className="max-w-3xl text-sm text-slate-700">
+                            RazeStore is an existing, complete electronics e-commerce system
+                            available for purchase. At KES 190,000, it sits within the standard
+                            e-commerce category, which is why a working e-commerce system can be
+                            quoted at KES 40,000, KES 190,000, or KES 600,000 depending on what
+                            it needs to do.
+                        </p>
+                    </div>
+
+                    <div className="mt-4 rounded border border-green-600 bg-white p-4">
+                        <div className="flex flex-col space-y-1.5">
+                            <p className="text-[11px] font-semibold uppercase text-green-700">
+                                Standard e-commerce category
+                            </p>
+                            <h3 className="text-base font-semibold text-blue-950">
+                                RazeStore — Complete electronics e-commerce system
+                            </h3>
+                            <p className="text-sm font-semibold text-green-700">
+                                KES 190,000
+                            </p>
+                        </div>
+                        <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
+                            {razeStoreFeatures.map((feature) => (
+                                <li key={feature} className="flex items-start gap-2">
+                                    <span
+                                        aria-hidden="true"
+                                        className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
+                                    />
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
@@ -162,7 +331,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200 bg-slate-50">
+            <section className="border-t border-slate-200">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
@@ -187,7 +356,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200">
+            <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
@@ -221,7 +390,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200 bg-slate-50">
+            <section className="border-t border-slate-200">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
@@ -235,8 +404,9 @@ export default function PricingPage() {
                     </div>
                     <div className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
                         <p>
-                            Common third-party costs include Vercel hosting, domain
-                            registration, and any messaging, email, or payment provider you use.
+                            Common separate costs include domain renewal, hosting,
+                            payment-provider charges, and any messaging, email, or third-party
+                            subscriptions you use.
                         </p>
                         <p>
                             These providers set and change their own prices. We do not guarantee
@@ -247,13 +417,13 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200">
+            <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                             Credentials and account access
                         </h2>
-                        <p className="text-sm ext-slate-700">
+                        <p className="text-sm text-slate-700">
                             Some features depend on services that belong to you. To set them up,
                             we need credentials or account access, and we test them live before
                             handover.
@@ -281,7 +451,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200 bg-slate-50">
+            <section className="border-t border-slate-200">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
@@ -307,7 +477,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200">
+            <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
@@ -356,14 +526,14 @@ export default function PricingPage() {
                                 no obligation.
                             </p>
                             <div className="flex flex-col gap-2 pt-1 sm:flex-row">
-                                <a
+                                {/*<a
                                     href={whatsappHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
                                 >
                                     Chat on WhatsApp
-                                </a>
+                                </a>*/}
                                 <Link
                                     href="/"
                                     className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
