@@ -16,8 +16,6 @@ export type NavItem = {
     children?: NavLink[];
 };
 
-// Short, scannable descriptions for the dropdown menu.
-// The full description shown on each demo page lives in `demos.ts`.
 const demoShortDescriptions: Record<string, string> = {
     "online-shop": "The customer-facing storefront experience.",
     mpesa: "How payment works at the end of checkout.",
@@ -34,8 +32,6 @@ const demoShortDescriptions: Record<string, string> = {
     banners: "Hero slides on your storefront.",
 };
 
-// Built from the same `demos` array the rest of the site uses, so the
-// dropdown cannot drift out of sync when a demo is added or renamed.
 const demoNavLinks: NavLink[] = demos.map((demo) => ({
     label: demo.title,
     href: demo.href,
@@ -86,7 +82,7 @@ const navigation: NavItem[] = [
             {
                 label: "Integrations",
                 href: "/demos/integrations",
-                description: "WhatsApp, email, AI, and social platforms.",
+                description: "WhatsApp, email, AI, social, and cloud.",
             },
         ],
     },
@@ -100,10 +96,7 @@ const navigation: NavItem[] = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to learn more about RazeStore for my business.",
@@ -123,7 +116,7 @@ export default function Navbar() {
                 <Link
                     href="/"
                     aria-label="RazeStore home"
-                    className="flex items-center gap-13 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="flex items-center gap-3 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                     <Image
                         src="/logo.jpeg"
@@ -138,7 +131,7 @@ export default function Navbar() {
                     </span>
                 </Link>
 
-                <div className="hidden lg:flex lg:items-center lg:gap-3">
+                <div className="ml-auto hidden lg:flex lg:items-center lg:gap-3">
                     <DesktopMenu items={navigation} />
                     <a
                         href={whatsappHref}
@@ -151,7 +144,7 @@ export default function Navbar() {
                     </a>
                 </div>
 
-                <div className="lg:hidden">
+                <div className="ml-auto lg:hidden">
                     <MobileMenu items={navigation} whatsappHref={whatsappHref} />
                 </div>
             </nav>
