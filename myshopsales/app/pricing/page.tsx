@@ -309,7 +309,7 @@ export default function PricingPage() {
                                 RazeStore — Complete electronics e-commerce system
                             </h3>
                             <p className="text-sm font-semibold text-green-700">
-                                KES 190,000
+                                KES 200,000
                             </p>
                         </div>
                         <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
