@@ -43,6 +43,7 @@ const marketLevels = [
             "Advanced inventory and reporting",
             "Multiple integrations",
             "Complex delivery workflows",
+            "AI insights and automation",
             "Advanced administration",
         ],
     },
@@ -53,8 +54,9 @@ const marketLevels = [
             "Complex business operations",
             "ERP and external system integrations",
             "Multi-branch operations",
-            "High-volume infrastructure",
+            "High-volume cloud infrastructure",
             "Advanced automation and reporting",
+            "Dedicated social and messaging pipelines",
         ],
     },
 ];
@@ -66,6 +68,10 @@ const razeStoreFeatures = [
     "Customer accounts.",
     "Inventory and order management.",
     "Administration dashboard.",
+    "AI insights for sales, stock, and customer behaviour.",
+    "Social media management platform for promotions and campaigns.",
+    "WhatsApp integration API for orders, alerts, and support.",
+    "Cloud deployment with scalable hosting and storage.",
     "Business-specific customization and deployment.",
     "Agreed handover and management support.",
 ];
@@ -73,6 +79,10 @@ const razeStoreFeatures = [
 const inclusions = [
     "Domain setup on a domain you provide or register.",
     "Agreed M-Pesa integration setup within the confirmed scope.",
+    "Agreed WhatsApp integration API setup within the confirmed scope.",
+    "Cloud deployment and environment configuration.",
+    "AI insights module configuration on your store data.",
+    "Social media management platform setup for your shop.",
     "Upload of up to 20 products with images and pricing.",
     "One hour of training on how to manage your store.",
     "30 days of bug fixes after handover.",
@@ -92,8 +102,12 @@ const processSteps = [
         body: "We customize branding, colors, and layout on top of the RazeStore base to match your shop.",
     },
     {
-        title: "Deploy and test",
-        body: "The store is deployed to Vercel and tested with your live credentials before handover.",
+        title: "Connect AI, social, and WhatsApp",
+        body: "We configure AI insights, the social media management platform, and the WhatsApp integration API with your credentials.",
+    },
+    {
+        title: "Deploy to cloud and test",
+        body: "The store is deployed to a cloud environment and tested with your live credentials before handover.",
     },
     {
         title: "Handover and training",
@@ -106,6 +120,9 @@ const exclusions = [
     "Product photography, copywriting, and content creation.",
     "Ongoing maintenance after the 30-day bug-fix window.",
     "Marketing, advertising, or SEO campaigns.",
+    "Social media ad spend and third-party ad accounts.",
+    "WhatsApp Business API conversation charges and provider fees.",
+    "AI provider usage fees and third-party API consumption costs.",
     "Additional product uploads beyond the agreed 20.",
     "Any third-party subscription or service fee.",
     "Any item not written into the final agreed scope.",
@@ -122,15 +139,27 @@ const faqs = [
     },
     {
         q: "How long does setup take?",
-        a: "Timelines depend on the agreed scope and how quickly we receive your content and credentials. A timeline is confirmed with you before work starts.",
+        a: "Timelines depend on the agreed scope and how quickly we receive your content, credentials, and third-party account access. A timeline is confirmed with you before work starts.",
     },
     {
         q: "Is hosting included?",
-        a: "No. Hosting is a separate third-party cost. We deploy to Vercel, but Vercel's plans and prices are set by Vercel and may change. We do not guarantee any third-party price.",
+        a: "No. Hosting and cloud infrastructure are separate third-party costs. We deploy to a cloud environment, but the provider's plans and prices are set by the provider and may change. We do not guarantee any third-party price.",
     },
     {
         q: "What support is included?",
         a: "Thirty days of bug fixes after handover. New features, changes in scope, and ongoing maintenance are handled separately and agreed in advance.",
+    },
+    {
+        q: "Are the AI insights live immediately?",
+        a: "The AI insights module is configured during your build. It begins producing useful output once your store has live data, and we test it with your credentials before handover.",
+    },
+    {
+        q: "Is the social media management platform included?",
+        a: "Yes, the platform setup and configuration are part of the package within the agreed scope. Ad spend, third-party ad accounts, and external subscriptions are separate costs that you control.",
+    },
+    {
+        q: "Is WhatsApp integration already active?",
+        a: "No. WhatsApp integration requires your WhatsApp Business account, API credentials, and live testing. It is configured and tested during your build and is not presented as ready until it is working.",
     },
     {
         q: "Are the integrations already live?",
@@ -320,8 +349,9 @@ export default function PricingPage() {
                             <li>Your own domain pointing to your store.</li>
                             <li>A store customized to your shop, not a generic template.</li>
                             <li>
-                                Access to your codebase, hosting account, and third-party
-                                accounts we set up on your behalf.
+                                Access to your codebase, cloud hosting account, WhatsApp
+                                Business account, and third-party accounts we set up on your
+                                behalf.
                             </li>
                             <li>
                                 No ongoing subscription from us for the store build itself.
@@ -363,8 +393,9 @@ export default function PricingPage() {
                             How the process works
                         </h2>
                         <p className="text-sm text-slate-700">
-                            Every build is customized, deployed, tested, and handed over in a
-                            structured way so you know exactly what is happening at each step.
+                            Every build is customized, connected, deployed, tested, and handed
+                            over in a structured way so you know exactly what is happening at
+                            each step.
                         </p>
                     </div>
                     <ol className="mt-3 flex flex-col space-y-2">
@@ -394,23 +425,24 @@ export default function PricingPage() {
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
                     <div className="flex flex-col space-y-1.5">
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Hosting and third-party services
+                            Cloud, hosting, and third-party services
                         </h2>
                         <p className="text-sm text-slate-700">
-                            The one-time price covers the store build. Third-party services run
-                            on separate accounts that you control, and they may charge their own
-                            fees.
+                            The one-time price covers the store build and configuration.
+                            Third-party services run on separate accounts that you control, and
+                            they may charge their own fees.
                         </p>
                     </div>
                     <div className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
                         <p>
-                            Common separate costs include domain renewal, hosting,
-                            payment-provider charges, and any messaging, email, or third-party
-                            subscriptions you use.
+                            Common separate costs include cloud hosting, domain renewal,
+                            payment-provider charges, WhatsApp Business API conversation fees,
+                            AI provider usage costs, social media ad spend, and any messaging,
+                            email, or third-party subscriptions you use.
                         </p>
                         <p>
                             These providers set and change their own prices. We do not guarantee
-                            any specific hosting plan or price will stay the same, and we do not
+                            any specific cloud plan or price will stay the same, and we do not
                             promise any third-party service is free.
                         </p>
                     </div>
@@ -435,9 +467,20 @@ export default function PricingPage() {
                             and a matching paybill or till account.
                         </li>
                         <li>
-                            Email, WhatsApp, AI, or social integrations require their own
-                            account access and API keys, and only work once configured and
-                            tested.
+                            WhatsApp integration requires a WhatsApp Business account, API
+                            access, and a verified phone number that you control.
+                        </li>
+                        <li>
+                            AI insights require access to the AI provider account and API keys
+                            that will run on your store data.
+                        </li>
+                        <li>
+                            The social media management platform requires access to your social
+                            media business accounts and their publishing permissions.
+                        </li>
+                        <li>
+                            Cloud deployment requires access to your cloud hosting account or
+                            permission to create one on your behalf.
                         </li>
                         <li>
                             Domain setup requires access to your registrar or permission to
@@ -526,7 +569,7 @@ export default function PricingPage() {
                                 no obligation.
                             </p>
                             <div className="flex flex-col gap-2 pt-1 sm:flex-row">
-                                {/*<a
+                               {/*} <a
                                     href={whatsappHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
