@@ -191,7 +191,7 @@ export default function PricingPage() {
                             One-time price
                         </p>
                         <p className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            KES 190,000
+                            KES 200,000
                         </p>
                         <p className="text-sm text-slate-700">
                             RazeStore is positioned within the standard e-commerce category.
