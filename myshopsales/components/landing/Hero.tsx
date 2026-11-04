@@ -32,13 +32,13 @@ export default function Hero() {
     };
 
     return (
-        <section className="border-b border-slate-200 bg-white px-4 py-8 text-slate-900 sm:px-6 lg:py-10">
-            <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
-                <div className="flex flex-col justify-center space-y-2 lg:col-span-6">
-                    <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-[2rem] xl:text-[2.35rem]">
+        <section className="border-b border-slate-200 bg-white px-4 py-8 text-slate-900 sm:px-6 lg:py-12">
+            <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+                <div className="flex flex-col justify-center space-y-3 lg:col-span-7">
+                    <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-[2.15rem] xl:text-[2.5rem]">
                         Own a fully built, ready-to-launch online shop for your electronics business
                     </h1>
-                    <p className="max-w-xl text-base text-slate-700 sm:text-sm">
+                    <p className="max-w-2xl text-base text-slate-700 sm:text-sm">
                         RazeStore is a complete, turn-key e-commerce platform built specifically for your shop.
                         It comes with a fully operational customer storefront, integrated M-Pesa payments,
                         and a powerful 20-module admin dashboard. You own the complete source code, content, and domain.
@@ -71,8 +71,8 @@ export default function Hero() {
                     </ul>
                 </div>
 
-                <div className="flex w-full justify-center lg:col-span-6">
-                    <div className="relative h-[200px] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm sm:h-[260px] md:h-[300px] lg:h-[340px] lg:w-[540px] xl:h-[380px] xl:w-[620px] 2xl:h-[420px] 2xl:w-[680px]">
+                <div className="flex w-full justify-center lg:col-span-5">
+                    <div className="relative h-[220px] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm sm:h-[280px] md:h-[320px] lg:h-[300px] lg:w-[460px] xl:h-[340px] xl:w-[540px] 2xl:h-[380px] 2xl:w-[600px]">
                         <video
                             ref={videoRef}
                             className="absolute inset-0 h-full w-full object-cover"
@@ -106,4 +106,4 @@ export default function Hero() {
             </div>
         </section>
     );
-} 
+}
