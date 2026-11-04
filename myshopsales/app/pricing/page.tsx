@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to discuss the RazeStore e-commerce system for my business.",
@@ -114,7 +114,7 @@ const faqs = [
 export default function PricingPage() {
     return (
         <main className="bg-white text-slate-900">
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-6">
+            <section className="mx-auto w-full max-w-7xl px-6 pb-4 pt-4">
                 <div className="flex flex-col space-y-1.5">
                     <span className="text-xs font-semibold uppercase text-green-700">
                         Pricing
@@ -128,7 +128,7 @@ export default function PricingPage() {
                     </p>
                 </div>
 
-                <div className="mt-4 rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-4">
+                <div className="mt-4 rounded border border-slate-200 bg-slate-50 p-4 sm:p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             One-time price
@@ -233,7 +233,7 @@ export default function PricingPage() {
                             The KES 200,000 project price is paid across three milestones.
                         </p>
                     </div>
-                    <div className="mt-4 overflow-hidden rounded-sm border border-slate-200 bg-white">
+                    <div className="mt-4 overflow-hidden rounded border border-slate-200 bg-white">
                         <table className="w-full text-left text-sm">
                             <thead className="bg-slate-100 text-[11px] font-semibold uppercase text-slate-500">
                                 <tr>
@@ -287,7 +287,7 @@ export default function PricingPage() {
                             Your business. Your customized system. Your control.
                         </p>
                     </div>
-                    <ul className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
+                    <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
                         {ownershipItems.map((item) => (
                             <li key={item} className="flex items-start gap-2">
                                 <span
@@ -298,7 +298,7 @@ export default function PricingPage() {
                             </li>
                         ))}
                     </ul>
-                    <div className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-700">
+                    <div className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-700">
                         <p>No shared shop and no monthly RazeStore rental.</p>
                         <p>
                             Ownership and transfer arrangements will be documented in the
@@ -343,12 +343,12 @@ export default function PricingPage() {
                             external expenses.
                         </p>
                     </div>
-                    <ul className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
+                    <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
                         {additionalCosts.map((item) => (
                             <li key={item} className="flex items-start gap-2">
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-slate-400"
+                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-slate-400"
                                 />
                                 <span>{item}</span>
                             </li>
@@ -367,12 +367,12 @@ export default function PricingPage() {
                             To complete the project, the customer provides:
                         </p>
                     </div>
-                    <ul className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
+                    <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
                         {customerResponsibilities.map((item) => (
                             <li key={item} className="flex items-start gap-2">
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-slate-400"
+                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-slate-400"
                                 />
                                 <span>{item}</span>
                             </li>
@@ -393,7 +393,7 @@ export default function PricingPage() {
                             management and handover.
                         </p>
                     </div>
-                    <div className="mt-4 flex flex-col space-y-2">
+                    <div className="mt-3 flex flex-col space-y-2">
                         {faqs.map((item) => (
                             <details
                                 key={item.q}

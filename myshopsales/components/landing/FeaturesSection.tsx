@@ -287,7 +287,7 @@ export default function FeaturesSection() {
                     </p>
                 </div>
 
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-2">
                     {(Object.keys(statusLabels) as FeatureStatus[]).map((status) => (
                         <span
                             key={status}
@@ -298,7 +298,7 @@ export default function FeaturesSection() {
                     ))}
                 </div>
 
-                <ul className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+                <ul className="mt-2 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature) => (
                         <li
                             key={feature.title}
@@ -345,7 +345,7 @@ export default function FeaturesSection() {
                     ))}
                 </ul>
 
-                <p className="mt-3 max-w-3xl text-xs text-slate-600">
+                <p className="mt-2 max-w-3xl text-xs text-slate-600">
                     The final set of features in your shop is confirmed with you before
                     handover. Anything not agreed in writing is out of scope, and any
                     feature that depends on a third-party service is described as working

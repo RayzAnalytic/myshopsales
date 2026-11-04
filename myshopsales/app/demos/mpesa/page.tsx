@@ -58,10 +58,7 @@ const flowSteps = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to ask about M-Pesa checkout setup for a RazeStore shop.",
@@ -123,7 +120,7 @@ export default function MpesaDemoPage() {
                         {flowSteps.map((step, index) => (
                             <li
                                 key={step.title}
-                                className="rounded-sm border border-slate-200 bg-white p-4"
+                                className="rounded border border-slate-200 bg-white p-4"
                             >
                                 <div className="flex flex-col space-y-1">
                                     <p className="text-[11px] font-semibold uppercase text-green-700">
@@ -258,13 +255,13 @@ export default function MpesaDemoPage() {
                     <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                         <Link
                             href="/demos/shop-management"
-                            className="inline-flex items-center justify-center rounded-sm bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             View the shop-management demo
                         </Link>
                         <Link
                             href="/demos"
-                            className="inline-flex items-center justify-center rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             Back to all demos
                         </Link>
@@ -274,7 +271,7 @@ export default function MpesaDemoPage() {
 
             <section className="border-t border-slate-200 bg-white">
                 <div className="mx-auto w-full max-w-7xl px-6 py-8">
-                    <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-6">
+                    <div className="rounded border border-slate-200 bg-slate-50 p-4 sm:p-4">
                         <div className="flex flex-col space-y-1.5">
                             <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                                 Want M-Pesa checkout on your shop?
@@ -289,13 +286,13 @@ export default function MpesaDemoPage() {
                                     href={whatsappHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center rounded-sm bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+                                    className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
                                 >
                                     Chat on WhatsApp
                                 </a>
                                 <Link
                                     href="/pricing"
-                                    className="inline-flex items-center justify-center rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                                    className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                                 >
                                     View pricing
                                 </Link>

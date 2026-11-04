@@ -144,10 +144,7 @@ const statusClasses: Record<IntegrationStatus, string> = {
     "requires-setup": "border-slate-400 bg-slate-50 text-slate-700",
 };
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to discuss which integrations can be set up for my RazeStore shop.",
@@ -160,7 +157,7 @@ const whatsappHref = whatsappNumber
 export default function IntegrationsDemoPage() {
     return (
         <main className="bg-white text-slate-900">
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-8">
+            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-6">
                 <div className="flex flex-col space-y-1.5">
                     <Link
                         href="/demos"
@@ -183,7 +180,7 @@ export default function IntegrationsDemoPage() {
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-6 pb-4">
-                <div className="rounded-sm border border-slate-200 bg-slate-50 p-3">
+                <div className="rounded border border-slate-200 bg-slate-50 p-3">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             What the badges mean
@@ -217,7 +214,7 @@ export default function IntegrationsDemoPage() {
                                 it works.
                             </li>
                         </ul>
-                        <p className="text-sm leading-relaxed text-slate-700">
+                        <p className="text-sm text-slate-700">
                             None of the integrations below are presented as already live on
                             your shop. Where an item is currently at{" "}
                             <strong className="text-blue-950">Requires setup</strong>, treat it
@@ -233,7 +230,7 @@ export default function IntegrationsDemoPage() {
                         <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                             Integrations
                         </h2>
-                        <p className="max-w-2xl text-sm leading-relaxed text-slate-700">
+                        <p className="max-w-2xl text-sm text-slate-700">
                             Each card shows what the integration is for, what it requires from
                             you, and what it does not mean until it has been configured.
                         </p>
@@ -242,7 +239,7 @@ export default function IntegrationsDemoPage() {
                         {integrations.map((integration) => (
                             <li
                                 key={integration.name}
-                                className="rounded-sm border border-slate-200 bg-white p-4"
+                                className="rounded border border-slate-200 bg-white p-4"
                             >
                                 <div className="flex flex-col space-y-1.5">
                                     <div className="flex flex-wrap items-center gap-2">
@@ -250,12 +247,12 @@ export default function IntegrationsDemoPage() {
                                             {integration.name}
                                         </h3>
                                         <span
-                                            className={`inline-flex items-center rounded-sm border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusClasses[integration.status]}`}
+                                            className={`inline-flex items-center rounded border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusClasses[integration.status]}`}
                                         >
                                             {statusLabels[integration.status]}
                                         </span>
                                     </div>
-                                    <p className="text-sm leading-relaxed text-slate-700">
+                                    <p className="text-sm text-slate-700">
                                         {integration.summary}
                                     </p>
                                     <div className="flex flex-col space-y-1">
@@ -373,7 +370,7 @@ export default function IntegrationsDemoPage() {
 
             <section className="border-t border-slate-200 bg-white">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="rounded-sm border border-slate-200 bg-slate-50 p-3 sm:p-6">
+                    <div className="rounded border border-slate-200 bg-slate-50 p-3 sm:p-6">
                         <div className="flex flex-col space-y-1.5">
                             <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                                 Which integrations fit your shop?

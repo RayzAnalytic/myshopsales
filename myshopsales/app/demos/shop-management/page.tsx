@@ -101,10 +101,7 @@ const conditionalFeatures: Feature[] = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to discuss the RazeStore admin and what can be customized for my shop.",
@@ -120,7 +117,7 @@ function FeatureList({ features }: { features: Feature[] }) {
             {features.map((feature) => (
                 <li
                     key={feature.title}
-                    className="rounded-sm border border-slate-200 bg-white p-3"
+                    className="rounded border border-slate-200 bg-white p-3"
                 >
                     <div className="flex flex-col space-y-1.5">
                         <div className="flex flex-wrap items-center gap-2">
@@ -128,7 +125,7 @@ function FeatureList({ features }: { features: Feature[] }) {
                                 {feature.title}
                             </h3>
                             {feature.pendingVerification ? (
-                                <span className="rounded-sm border border-slate-300 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold uppercase text-slate-600">
+                                <span className="rounded border border-slate-300 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold uppercase text-slate-600">
                                     Confirm scope
                                 </span>
                             ) : null}
@@ -146,7 +143,7 @@ function FeatureList({ features }: { features: Feature[] }) {
 export default function ShopManagementDemoPage() {
     return (
         <main className="bg-white text-slate-900">
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-8">
+            <section className="mx-auto w-full max-w-7xl px-6 pb-4 pt-6">
                 <div className="flex flex-col space-y-1.5">
                     <Link
                         href="/demos"
@@ -167,7 +164,7 @@ export default function ShopManagementDemoPage() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6">
+            <section className="mx-auto w-full max-w-7xl px-6 pb-4">
                 <VideoViewer
                     videoSrc={adminMedia.videoSrc}
                     posterSrc={adminMedia.posterSrc}
@@ -181,7 +178,7 @@ export default function ShopManagementDemoPage() {
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-6 pb-6">
-                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                <div className="rounded border border-slate-200 bg-slate-50 p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             About this demo
@@ -271,13 +268,13 @@ export default function ShopManagementDemoPage() {
                     <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                         <Link
                             href="/demos/business-insights"
-                            className="inline-flex items-center justify-center rounded-sm bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             View the business-insights demo
                         </Link>
                         <Link
                             href="/demos"
-                            className="inline-flex items-center justify-center rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             Back to all demos
                         </Link>
@@ -287,7 +284,7 @@ export default function ShopManagementDemoPage() {
 
             <section className="border-t border-slate-200 bg-white">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                    <div className="rounded border border-slate-200 bg-slate-50 p-4">
                         <div className="flex flex-col space-y-1.5">
                             <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                                 Want the admin customized for your shop?
@@ -302,13 +299,13 @@ export default function ShopManagementDemoPage() {
                                     href={whatsappHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center rounded-sm bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+                                    className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
                                 >
                                     Chat on WhatsApp
                                 </a>
                                 <Link
                                     href="/pricing"
-                                    className="inline-flex items-center justify-center rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                                    className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                                 >
                                     View pricing
                                 </Link>

@@ -4,10 +4,7 @@ import DemoGrid from "@/components/demos/DemoGrid";
 import type { DemoItem } from "@/components/demos/DemoGrid";
 import { demos } from "@/data/demos";
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I saw the RazeStore demos and would like a shop customized for my business.",
@@ -18,10 +15,6 @@ const whatsappHref = whatsappNumber
     : `https://wa.me/?text=${whatsappMessage}`;
 
 type RawDemo = (typeof demos)[number];
-
-// Normalizes a `Demo` record into the shape `DemoGrid` / `DemoCard` expect.
-// Drops `screenshots` (not used by the card) and falls back to the poster
-// when `thumbnailSrc` is empty, so the grid never shows a blank preview.
 function toDemoItem(demo: RawDemo): DemoItem {
     return {
         slug: demo.slug,
@@ -37,9 +30,6 @@ function toDemoItem(demo: RawDemo): DemoItem {
         posterSrc: demo.posterSrc,
     };
 }
-
-// Categories in the order they first appear in `demos`, so the filter row
-// matches the source file rather than alphabetical guesswork.
 const allCategories = Array.from(new Set(demos.map((demo) => demo.category)));
 
 const allItems: DemoItem[] = demos.map(toDemoItem);
@@ -58,13 +48,6 @@ type DemosSearchParams = {
     category?: string;
     q?: string;
 };
-
-/* -------------------------------------------------------------------------
- * Skeletons
- * These render as the static fallback while the URL-dependent region streams
- * in. They approximate the final layout so the page doesn't jump when the
- * real filters and grid arrive.
- * ---------------------------------------------------------------------- */
 
 function FiltersSkeleton() {
     return (
@@ -99,11 +82,6 @@ function GridSkeleton() {
     );
 }
 
-/* -------------------------------------------------------------------------
- * URL-dependent region
- * `searchParams` is awaited *here*, inside its own Suspense boundary, so the
- * rest of the page can be prerendered as a shared static shell.
- * ---------------------------------------------------------------------- */
 
 async function DemoResults({
     searchParams,
@@ -120,7 +98,7 @@ async function DemoResults({
     return (
         <>
             <section className="border-t border-slate-200">
-                <div className="mx-auto w-full max-w-7xl px-6 pt-6 pb-2">
+                <div className="mx-auto w-full max-w-7xl px-6 pt-4 pb-2">
                     <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                         <nav aria-label="Filter demos by category">
                             <ul className="flex flex-wrap gap-2">
@@ -227,12 +205,6 @@ async function DemoResults({
     );
 }
 
-/* -------------------------------------------------------------------------
- * Page
- * Synchronous. No `await searchParams` at the top. The static shell (header,
- * about box, closing CTA) prerenders; only <DemoResults> suspends.
- * ---------------------------------------------------------------------- */
-
 export default function DemosPage({
     searchParams,
 }: {
@@ -240,7 +212,7 @@ export default function DemosPage({
 }) {
     return (
         <main className="bg-white text-slate-900">
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-6">
+            <section className="mx-auto w-full max-w-7xl px-6 pb-4 pt-4">
                 <div className="flex flex-col space-y-1.5">
                     <span className="text-xs font-semibold uppercase text-green-700">
                         Demos
@@ -264,7 +236,7 @@ export default function DemosPage({
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             About these demos
                         </p>
-                        <ul className="flex flex-col space-y-1.5 text-sm leading-relaxed text-slate-700">
+                        <ul className="flex flex-col space-y-1.5 text-sm text-slate-700">
                             <li>
                                 Demos use sample product data to show how the shop
                                 looks when it is filled in with real listings.
@@ -298,7 +270,7 @@ export default function DemosPage({
 
             <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-8">
-                    <div className="rounded border border-slate-200 bg-white p-4 sm:p-6">
+                    <div className="rounded border border-slate-200 bg-white p-4 sm:p-4">
                         <div className="flex flex-col space-y-1.5">
                             <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
                                 Want a shop like this for your business?

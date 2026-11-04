@@ -96,7 +96,7 @@ const navigation: NavItem[] = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to learn more about RazeStore for my business.",
@@ -126,7 +126,7 @@ export default function Navbar() {
                         priority
                         className="h-9 w-9 rounded object-contain"
                     />
-                    <span className="text-lg font-bold tracking-tight text-white">
+                    <span className="text-lg font-bold text-white">
                         RazeStore
                     </span>
                 </Link>

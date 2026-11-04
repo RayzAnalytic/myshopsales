@@ -98,7 +98,7 @@ export default function ProblemSection() {
                     {problems.map((item, index) => (
                         <li
                             key={item.title}
-                            className="flex flex-col space-y-1.5 rounded-sm border border-slate-200 bg-white p-3"
+                            className="flex flex-col space-y-1.5 rounded border border-slate-200 bg-white p-3"
                         >
                             <div className="flex items-center gap-2">
                                 <span
@@ -132,7 +132,7 @@ export default function ProblemSection() {
                     ))}
                 </ul>
 
-                <p className="mt-4 max-w-3xl text-xs text-slate-600">
+                <p className="mt-2 max-w-3xl text-xs text-slate-600">
                     These are common situations, not universal ones. If any of them sound
                     like your week, the RazeStore admin is built to bring the record of each
                     order and product into one place so you can spend less time chasing

@@ -32,7 +32,7 @@ export default function PricingSection() {
                     </p>
                 </div>
 
-                <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-5">
+                <div className="mt-2 grid grid-cols-1 gap-3 lg:grid-cols-5">
                     <div className="flex flex-col space-y-1.5 rounded-sm border border-slate-200 bg-slate-50 p-3 lg:col-span-2">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             Pricing
@@ -58,7 +58,7 @@ export default function PricingSection() {
                                 <li key={item} className="flex items-start gap-2">
                                     <span
                                         aria-hidden="true"
-                                        className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
+                                        className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-green-600"
                                     />
                                     <span>{item}</span>
                                 </li>
@@ -67,7 +67,7 @@ export default function PricingSection() {
                     </div>
                 </div>
 
-                <div className="mt-4 rounded-sm border border-slate-200 bg-slate-50 p-4">
+                <div className="mt-4 rounded border border-slate-200 bg-slate-50 p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             Please note
@@ -92,7 +92,7 @@ export default function PricingSection() {
                     </div>
                 </div>
 
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
+                <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                     {/*<WhatsAppButton
                         message="Hi, I'd like to confirm the current RazeStore price and what it includes."
                         variant="primary"

@@ -319,7 +319,7 @@ export default function ScreenshotGallery({
     if (!screenshots || screenshots.length === 0) {
         return (
             <div
-                className={`rounded-sm border border-slate-200 bg-slate-50 p-3 ${className}`.trim()}
+                className={`rounded border border-slate-200 bg-slate-50 p-3 ${className}`.trim()}
             >
                 <p className="text-sm text-slate-700">{emptyMessage}</p>
             </div>

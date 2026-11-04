@@ -66,7 +66,7 @@ export default function OwnershipSection() {
                     </p>
                 </div>
 
-                <ul className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+                <ul className="mt-2 grid grid-cols-1 gap-3 md:grid-cols-2">
                     {ownershipItems.map((item) => (
                         <li
                             key={item.title}
@@ -87,7 +87,7 @@ export default function OwnershipSection() {
                     ))}
                 </ul>
 
-                <div className="mt-4 rounded-sm border border-slate-200 bg-white p-4">
+                <div className="mt-2 rounded border border-slate-200 bg-white p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             How to read this
@@ -113,7 +113,7 @@ export default function OwnershipSection() {
                     </div>
                 </div>
 
-                <div className="mt-4 flex flex-col space-y-1.5">
+                <div className="mt-2 flex flex-col space-y-1.5">
                     <h3 className="text-base font-semibold text-blue-950">
                         Want to see the full picture?
                     </h3>

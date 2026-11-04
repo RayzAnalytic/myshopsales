@@ -78,7 +78,7 @@ export default function HowItWorks() {
                     ))}
                 </ol>
 
-                <div className="mt-4 rounded border border-slate-200 bg-slate-50 p-4">
+                <div className="mt-2 rounded border border-slate-200 bg-slate-50 p-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-[11px] font-semibold uppercase text-slate-500">
                             Please note
@@ -106,7 +106,7 @@ export default function HowItWorks() {
                     </div>
                 </div>
 
-                <div className="mt-4 flex flex-col space-y-1.5">
+                <div className="mt-2 flex flex-col space-y-1.5">
                     <h3 className="text-base font-semibold text-blue-950">
                         Ready to start the conversation?
                     </h3>

@@ -6,10 +6,7 @@ import VideoViewer from "@/components/demos/VideoViewer";
 import ScreenshotGallery from "@/components/demos/ScreenshotGallery";
 import { demos, getDemoBySlug } from "@/data/demos";
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to ask about this RazeStore demo for my shop.",
@@ -53,11 +50,6 @@ function statusBadge(statusKey: string) {
 const categoryHref = (category: string) =>
     `/demos?category=${encodeURIComponent(category)}`;
 
-/* -------------------------------------------------------------------------
- * Skeleton
- * Static fallback while the params-dependent region resolves.
- * ---------------------------------------------------------------------- */
-
 function DemoDetailSkeleton() {
     return (
         <>
@@ -70,10 +62,10 @@ function DemoDetailSkeleton() {
                     <div className="h-4 w-full max-w-md animate-pulse rounded bg-slate-100" />
                 </div>
             </div>
-            <div className="mx-auto w-full max-w-7xl px-6 pb-6">
+            <div className="mx-auto w-full max-w-7xl px-4 pb-4">
                 <div className="aspect-video w-full animate-pulse rounded border border-slate-200 bg-slate-100" />
             </div>
-            <div className="mx-auto w-full max-w-7xl px-6 py-8">
+            <div className="mx-auto w-full max-w-7xl px-4 py-8">
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
                     {Array.from({ length: 3 }).map((_, i) => (
                         <div
@@ -87,11 +79,6 @@ function DemoDetailSkeleton() {
     );
 }
 
-/* -------------------------------------------------------------------------
- * Params-dependent region
- * `params` is awaited *here*, inside its own Suspense boundary, so the page
- * itself stays synchronous and can be part of the shared static shell.
- * ---------------------------------------------------------------------- */
 
 async function DemoDetail({
     params,
@@ -107,7 +94,7 @@ async function DemoDetail({
 
     return (
         <>
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-8">
+            <section className="mx-auto w-full max-w-7xl px-4 pb-4 pt-6">
                 <div className="flex flex-col space-y-1.5">
                     <Link
                         href="/demos"
@@ -120,7 +107,7 @@ async function DemoDetail({
                             {demo.title}
                         </h1>
                         <span
-                            className={`inline-flex items-center rounded-sm border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusBadge(
+                            className={`inline-flex items-center rounded border px-2 py-0.5 text-[11px] font-semibold uppercase ${statusBadge(
                                 demo.statusKey,
                             )}`}
                         >
@@ -129,7 +116,7 @@ async function DemoDetail({
                     </div>
                     <Link
                         href={categoryHref(demo.category)}
-                        className="w-fit text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-blue-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                        className="w-fit text-xs font-semibold uppercase text-slate-500 hover:text-blue-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                     >
                         {demo.category}
                     </Link>
@@ -155,8 +142,8 @@ async function DemoDetail({
             ) : null}
 
             {requiresSetup ? (
-                <section className="mx-auto w-full max-w-7xl px-6 pb-6">
-                    <div className="rounded-sm border border-amber-300 bg-amber-50 p-4">
+                <section className="mx-auto w-full max-w-7xl px-4 pb-6">
+                    <div className="rounded border border-amber-300 bg-amber-50 p-4">
                         <div className="flex flex-col space-y-1.5">
                             <p className="text-[11px] font-semibold uppercase text-amber-800">
                                 Requires setup
@@ -206,13 +193,13 @@ async function DemoDetail({
                     <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                         <Link
                             href={categoryHref(demo.category)}
-                            className="inline-flex items-center justify-center rounded-sm bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             More {demo.category} demos
                         </Link>
                         <Link
                             href="/demos"
-                            className="inline-flex items-center justify-center rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             Back to all demos
                         </Link>
@@ -255,11 +242,6 @@ async function DemoDetail({
     );
 }
 
-/* -------------------------------------------------------------------------
- * Page
- * Synchronous. No `await params` here. The shell prerenders; only
- * <DemoDetail> suspends while the slug is resolved.
- * ---------------------------------------------------------------------- */
 
 export default function DemoDetailPage({
     params,

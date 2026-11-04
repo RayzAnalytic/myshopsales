@@ -65,7 +65,7 @@ export default function FeaturedDemo() {
                     </p>
                 </div>
 
-                <div className="mt-4 grid grid-cols-1 items-center gap-3 lg:grid-cols-5">
+                <div className="mt-2 grid grid-cols-1 items-center gap-3 lg:grid-cols-5">
                     <div className="lg:col-span-3">
                         {hasFeaturedVideo ? (
                             <VideoViewer
@@ -75,7 +75,7 @@ export default function FeaturedDemo() {
                                 caption={FEATURED_MEDIA.caption}
                             />
                         ) : (
-                            <div className="flex aspect-video w-full items-center justify-center rounded border border-slate-200 bg-slate-50 p-6">
+                            <div className="flex aspect-video w-full items-center justify-center rounded border border-slate-200 bg-slate-50 p-4">
                                 <div className="flex flex-col items-center space-y-2 text-center">
                                     <span className="text-sm font-semibold text-slate-700">
                                         Featured demo preview
@@ -119,7 +119,7 @@ export default function FeaturedDemo() {
             </div>
 
             {smallerDemos.length > 0 ? (
-                <div className="mx-auto w-full max-w-7xl px-6 pb-8">
+                <div className="mx-auto w-full max-w-7xl px-6 pb-6">
                     <div className="flex flex-col space-y-1.5">
                         <h3
                             id="also-explore-heading"
@@ -132,7 +132,7 @@ export default function FeaturedDemo() {
                             page with its own screenshots and explanation.
                         </p>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-2">
                         <DemoGrid
                             demos={smallerDemos}
                             columns={3}

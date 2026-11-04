@@ -98,7 +98,7 @@ export default function MobileMenu({ items, whatsappHref }: MobileMenuProps) {
                 aria-controls="mobile-menu-panel"
                 aria-label="Open menu"
                 onClick={openMenu}
-                className="inline-flex items-center justify-center rounded-sm px-2 py-2 text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex items-center justify-center rounded px-2 py-2 text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
                 <svg
                     aria-hidden="true"
@@ -134,14 +134,14 @@ export default function MobileMenu({ items, whatsappHref }: MobileMenuProps) {
                             <Link
                                 href="/"
                                 onClick={closeAfterNavigation}
-                                className="flex items-center gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                className="flex items-center gap-2 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
                                 <Image
                                     src="/logo.jpeg"
                                     alt="RazeStore logo"
                                     width={32}
                                     height={32}
-                                    className="h-8 w-8 rounded-sm object-contain"
+                                    className="h-8 w-8 rounded object-contain"
                                 />
                                 <span className="text-base font-bold text-white">
                                     RazeStore
@@ -230,7 +230,7 @@ export default function MobileMenu({ items, whatsappHref }: MobileMenuProps) {
                                                                     {child.label}
                                                                 </span>
                                                                 {child.description ? (
-                                                                    <span className="mt-0.5 block text-xs leading-relaxed text-slate-300">
+                                                                    <span className="mt-0.5 block text-xs text-slate-300">
                                                                         {child.description}
                                                                     </span>
                                                                 ) : null}

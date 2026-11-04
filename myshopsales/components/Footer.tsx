@@ -45,7 +45,7 @@ export default function Footer() {
                                 alt=""
                                 width={36}
                                 height={36}
-                                className="h-9 w-9 rounded-sm object-contain"
+                                className="h-9 w-9 rounded object-contain"
                             />
                             <span className="text-lg font-bold text-white">
                                 RazeStore
@@ -119,7 +119,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-4 border-t border-blue-900 pt-4">
+                <div className="mt-2 border-t border-blue-900 pt-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-xs text-slate-300">
                             Third-party integrations such as M-Pesa, email,

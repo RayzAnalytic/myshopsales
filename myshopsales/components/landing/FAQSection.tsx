@@ -90,14 +90,14 @@ export default function FAQSection() {
                                     </span>
                                 </span>
                             </summary>
-                            <p className="mt-2 pl-7 text-sm text-slate-700">
+                            <p className="mt-1 pl-7 text-sm text-slate-700">
                                 {item.a}
                             </p>
                         </details>
                     ))}
                 </div>
 
-                <div className="mt-3 rounded border border-slate-200 bg-slate-50 p-4">
+                <div className="mt-2 rounded border border-slate-200 bg-slate-50 p-4">
                     <div className="flex flex-col space-y-1.5">
                         <h3 className="text-base font-semibold text-blue-950">
                             Still have a question?

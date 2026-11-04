@@ -54,10 +54,7 @@ const shoppingSteps = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'm interested in a RazeStore online shop for my electronics business.",
@@ -89,7 +86,7 @@ export default function OnlineShopDemoPage() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6">
+            <section className="mx-auto w-full max-w-7xl px-6 pb-4">
                 <VideoViewer
                     videoSrc={storefrontMedia.videoSrc}
                     posterSrc={storefrontMedia.posterSrc}
@@ -205,13 +202,13 @@ export default function OnlineShopDemoPage() {
                     <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                         <Link
                             href="/demos/mpesa"
-                            className="inline-flex items-center justify-center rounded-sm bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             View the M-Pesa checkout demo
                         </Link>
                         <Link
                             href="/demos"
-                            className="inline-flex items-center justify-center rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                            className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
                         >
                             Back to all demos
                         </Link>
@@ -236,7 +233,7 @@ export default function OnlineShopDemoPage() {
                                     href={whatsappHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center rounded-sm bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+                                    className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
                                 >
                                     Chat on WhatsApp
                                 </a>

@@ -62,10 +62,7 @@ const verifiedReports: VerifiedFeature[] = [
     },
 ];
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-    /\D/g,
-    "",
-);
+const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
 const whatsappMessage = encodeURIComponent(
     "Hi, I'd like to understand the RazeStore business insights and AI assistant before deciding.",
@@ -78,7 +75,7 @@ const whatsappHref = whatsappNumber
 export default function BusinessInsightsDemoPage() {
     return (
         <main className="bg-white text-slate-900">
-            <section className="mx-auto w-full max-w-7xl px-6 pb-6 pt-8">
+            <section className="mx-auto w-full max-w-7xl px-4 pb-4 pt-6">
                 <div className="flex flex-col space-y-1.5">
                     <Link
                         href="/demos"
@@ -152,7 +149,7 @@ export default function BusinessInsightsDemoPage() {
                         {verifiedReports.map((report) => (
                             <li
                                 key={report.title}
-                                className="rounded-sm border border-slate-200 bg-white p-3"
+                                className="rounded border border-slate-200 bg-white p-3"
                             >
                                 <div className="flex flex-col space-y-1">
                                     <h3 className="text-base font-semibold text-blue-950">

@@ -2,10 +2,10 @@ import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const capabilityLabels = [
-    "Custom storefront",
-    "Product browsing",
+    "Ready-built storefront",
+    "M-Pesa STK push",
     "Cart and checkout",
-    "Admin dashboard",
+    "20-module admin",
     "Your own domain",
 ];
 
@@ -13,20 +13,19 @@ export default function Hero() {
     return (
         <section className="border-b border-slate-200 bg-white px-6 py-8 text-slate-900">
             <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-6 lg:grid-cols-5 lg:gap-10">
-                <div className="flex flex-col justify-center space-y-3 lg:col-span-2">
+                <div className="flex flex-col justify-center space-y-2 lg:col-span-2">
                     <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-4xl">
-                        Own a customized online shop for your electronics business
+                        Own a fully built, ready-to-launch online shop for your electronics business
                     </h1>
                     <p className="max-w-xl text-base text-slate-700 sm:text-sm">
-                        RazeStore is a real online store built around your shop. Customers browse your
-                        products, open an item to see its details, add what they want to a cart, and
-                        check out — with M-Pesa available once it is configured for your account. You
-                        own the store, the content, and the domain.
+                        RazeStore is a complete, turn-key e-commerce platform built specifically for your shop.
+                        It comes with a fully operational customer storefront, integrated M-Pesa payments,
+                        and a powerful 20-module admin dashboard. You own the complete source code, content, and domain.
                     </p>
 
-                    <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+                    <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:items-center">
                         <WhatsAppButton
-                            message="Hi, I'd like to know more about getting a RazeStore online shop for my business."
+                            message="Hi, I'd like to get the ready-built RazeStore online shop for my electronics business."
                             variant="primary"
                         >
                             Chat on WhatsApp
@@ -39,7 +38,7 @@ export default function Hero() {
                         </Link>
                     </div>
 
-                    <ul aria-label="What the shop includes" className="mt-3 flex flex-wrap gap-3">
+                    <ul aria-label="What the shop includes" className="mt-2 flex flex-wrap gap-3">
                         {capabilityLabels.map((label) => (
                             <li
                                 key={label}
@@ -51,7 +50,7 @@ export default function Hero() {
                     </ul>
                 </div>
 
-                <div className="flex w-full justify-center lg:col-span-3">
+                <div className="flex w-full justify-center lg:col-span-2">
                     <div className="w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-50 p-2">
                         <video
                             className="block h-auto max-h-[600px] w-full rounded object-contain"
@@ -60,7 +59,7 @@ export default function Hero() {
                             loop
                             playsInline
                             preload="metadata"
-                            poster="/landing/hero-storefront.webp"
+                            poster="/storefrontposter.png"
                             aria-label="RazeStore storefront preview"
                         >
                             <source src="/videos/completestorefront.mp4" type="video/mp4" />
