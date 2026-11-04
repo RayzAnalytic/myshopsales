@@ -35,7 +35,7 @@ export default function Hero() {
         <section className="border-b border-slate-200 bg-white px-4 py-8 text-slate-900 sm:px-6 lg:py-12">
             <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
                 <div className="flex flex-col justify-center space-y-2 lg:col-span-4">
-                    <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-[2.15rem] xl:text-[2.5rem]">
+                    <h1 className="text-3xl font-bold text-blue-950 sm:text-4xl lg:text-[2.15rem] xl:text-[2.5rem]">
                         Own a fully built, ready-to-launch online shop for your electronics business
                     </h1>
                     <p className="max-w-xl text-base text-slate-700 sm:text-sm">
@@ -72,7 +72,7 @@ export default function Hero() {
                 </div>
 
                 <div className="flex w-full justify-center lg:col-span-8">
-                    <div className="relative h-[320px] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm sm:h-[420px] md:h-[520px] lg:h-[620px] lg:w-[900px] xl:h-[720px] xl:w-[1100px] 2xl:h-[780px] 2xl:w-[1200px]">
+                    <div className="relative h-[260px] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm sm:h-[340px] md:h-[400px] lg:h-[460px] lg:w-[900px] xl:h-[520px] xl:w-[1100px] 2xl:h-[560px] 2xl:w-[1200px]">
                         <video
                             ref={videoRef}
                             className="absolute inset-0 h-full w-full object-cover"
@@ -95,7 +95,6 @@ export default function Hero() {
                                 }`}
                             aria-hidden={!showPoster}
                         >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src="/images/storefrontposter.png"
                                 alt="RazeStore storefront preview"
