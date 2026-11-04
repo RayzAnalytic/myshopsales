@@ -72,7 +72,7 @@ export default function Hero() {
                 </div>
 
                 <div className="flex w-full justify-center lg:col-span-5">
-                    <div className="relative h-[220px] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm sm:h-[280px] md:h-[320px] lg:h-[300px] lg:w-[460px] xl:h-[340px] xl:w-[540px] 2xl:h-[380px] 2xl:w-[600px]">
+                    <div className="relative aspect-video w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm lg:w-[560px] xl:w-[620px] 2xl:w-[680px]">
                         <video
                             ref={videoRef}
                             className="absolute inset-0 h-full w-full object-cover"
