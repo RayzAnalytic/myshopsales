@@ -5,10 +5,10 @@ import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const capabilityLabels = [
-    "Ready-built storefront",
-    "M-Pesa STK push",
+    "Custom storefront",
+    "Product browsing",
     "Cart and checkout",
-    "20-module admin",
+    "Admin dashboard",
     "Your own domain",
 ];
 
@@ -32,10 +32,10 @@ export default function Hero() {
     };
 
     return (
-        <section className="border-b border-slate-200 bg-white px-6 py-8 text-slate-900">
-            <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-6 lg:grid-cols-5 lg:gap-10">
-                <div className="flex flex-col justify-center space-y-2 lg:col-span-2">
-                    <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-4xl">
+        <section className="border-b border-slate-200 bg-white px-4 py-8 text-slate-900 sm:px-6 lg:py-12">
+            <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+                <div className="flex flex-col justify-center space-y-2 lg:col-span-4">
+                    <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-[2.15rem] xl:text-[2.5rem]">
                         Own a fully built, ready-to-launch online shop for your electronics business
                     </h1>
                     <p className="max-w-xl text-base text-slate-700 sm:text-sm">
@@ -46,7 +46,7 @@ export default function Hero() {
 
                     <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:items-center">
                         <WhatsAppButton
-                            message="Hi, I'd like to get the ready-built RazeStore online shop for my electronics business."
+                            message="Hi, I'd like to know more about getting a RazeStore online shop for my business."
                             variant="primary"
                         >
                             Chat on WhatsApp
@@ -59,11 +59,11 @@ export default function Hero() {
                         </Link>
                     </div>
 
-                    <ul aria-label="What the shop includes" className="mt-2 flex flex-wrap gap-3">
+                    <ul aria-label="What the shop includes" className="mt-2 flex flex-wrap gap-2">
                         {capabilityLabels.map((label) => (
                             <li
                                 key={label}
-                                className="inline-flex items-center rounded border border-slate-200 bg-slate-50 px-2 py-2 text-xs font-medium text-slate-700"
+                                className="inline-flex items-center rounded border border-slate-200 bg-slate-50 px-2 py-1.5 text-xs font-medium text-slate-700"
                             >
                                 {label}
                             </li>
@@ -71,42 +71,40 @@ export default function Hero() {
                     </ul>
                 </div>
 
-                <div className="flex w-full justify-center lg:col-span-2">
-                    <div className="w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-50 p-2">
-                        <div className="relative w-full overflow-hidden rounded bg-slate-100">
-                            <video
-                                ref={videoRef}
-                                className="relative z-0 block h-auto max-h-[600px] w-full rounded object-contain"
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                preload="auto"
-                                poster="/storefrontposter.png"
-                                onCanPlay={handleReady}
-                                onPlaying={() => setShowPoster(false)}
-                                aria-label="RazeStore storefront preview"
-                            >
-                                <source src="/videos/completestorefront.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                <div className="flex w-full justify-center lg:col-span-8">
+                    <div className="relative h-[320px] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm sm:h-[420px] md:h-[520px] lg:h-[620px] lg:w-[900px] xl:h-[720px] xl:w-[1100px] 2xl:h-[780px] 2xl:w-[1200px]">
+                        <video
+                            ref={videoRef}
+                            className="absolute inset-0 h-full w-full object-cover"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="auto"
+                            poster="/images/storefrontposter.png"
+                            onCanPlay={handleReady}
+                            onPlaying={() => setShowPoster(false)}
+                            aria-label="RazeStore storefront preview"
+                        >
+                            <source src="/videos/completestorefront.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
 
-                            <div
-                                className={`pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-slate-100 transition-opacity duration-500 ${showPoster ? "opacity-100" : "opacity-0"
-                                    }`}
-                                aria-hidden={!showPoster}
-                            >
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/storefrontposter.png"
-                                    alt=""
-                                    className="h-auto max-h-[600px] w-full rounded object-contain"
-                                />
-                            </div>
+                        <div
+                            className={`pointer-events-none absolute inset-0 bg-slate-100 transition-opacity duration-500 ${showPoster ? "opacity-100" : "opacity-0"
+                                }`}
+                            aria-hidden={!showPoster}
+                        >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src="/images/storefrontposter.png"
+                                alt="RazeStore storefront preview"
+                                className="h-full w-full object-cover"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     );
-}
+} 
