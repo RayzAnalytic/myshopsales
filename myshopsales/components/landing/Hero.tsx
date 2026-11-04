@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -10,6 +13,24 @@ const capabilityLabels = [
 ];
 
 export default function Hero() {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [showPoster, setShowPoster] = useState(true);
+
+    const startPlayback = () => {
+        const video = videoRef.current;
+        if (!video) return;
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => { });
+        }
+    };
+
+    const handleReady = () => {
+        setShowPoster(false);
+        startPlayback();
+    };
+
     return (
         <section className="border-b border-slate-200 bg-white px-6 py-8 text-slate-900">
             <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-6 lg:grid-cols-5 lg:gap-10">
@@ -52,19 +73,37 @@ export default function Hero() {
 
                 <div className="flex w-full justify-center lg:col-span-2">
                     <div className="w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-50 p-2">
-                        <video
-                            className="block h-auto max-h-[600px] w-full rounded object-contain"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            preload="metadata"
-                            poster="/storefrontposter.png"
-                            aria-label="RazeStore storefront preview"
-                        >
-                            <source src="/videos/completestorefront.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                        <div className="relative w-full overflow-hidden rounded bg-slate-100">
+                            <video
+                                ref={videoRef}
+                                className="relative z-0 block h-auto max-h-[600px] w-full rounded object-contain"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                preload="auto"
+                                poster="/storefrontposter.png"
+                                onCanPlay={handleReady}
+                                onPlaying={() => setShowPoster(false)}
+                                aria-label="RazeStore storefront preview"
+                            >
+                                <source src="/videos/completestorefront.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <div
+                                className={`pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-slate-100 transition-opacity duration-500 ${showPoster ? "opacity-100" : "opacity-0"
+                                    }`}
+                                aria-hidden={!showPoster}
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/storefrontposter.png"
+                                    alt=""
+                                    className="h-auto max-h-[600px] w-full rounded object-contain"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
