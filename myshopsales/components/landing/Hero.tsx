@@ -40,8 +40,8 @@ export default function Hero() {
     };
 
     return (
-        <section className="border-b border-slate-200 bg-white px-4 py-8 text-slate-900 sm:px-6 lg:py-12">
-            <div className="mx-auto grid w-full max-w-[1700px] grid-cols-1 items-center gap-4 lg:grid-cols-12 lg:gap-8">
+        <section className="border-b border-slate-200 bg-white px-4 py-10 text-slate-900 sm:px-6 lg:py-16">
+            <div className="mx-auto grid w-full max-w-[1700px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
                 <div className="flex flex-col justify-center space-y-3 lg:col-span-6">
                     <h1 className="text-3xl font-bold text-blue-950 sm:text-4xl lg:text-[2rem] xl:text-[2rem]">
                         Own a fully built, ready-to-launch online shop for your electronics business
@@ -80,7 +80,7 @@ export default function Hero() {
                 </div>
 
                 <div className="flex w-full justify-center lg:col-span-6">
-                    <div className="relative w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm lg:w-[700px] xl:w-[780px] 2xl:w-[860px]">
+                    <div className="relative aspect-video w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm">
                         <video
                             ref={videoRef}
                             className="absolute inset-0 h-full w-full object-cover"
