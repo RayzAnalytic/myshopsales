@@ -42,8 +42,8 @@ export default function Hero() {
     };
 
     return (
-        <section className="border-b border-slate-200 bg-white px-4 py-12 text-slate-900 sm:px-4 lg:py-20">
-            <div className="mx-auto grid w-full max-w-[1700px] grid-cols-1 items-center gap-4 lg:grid-cols-12 lg:gap-4">
+        <section className="border-b border-slate-200 bg-white px-4 py-12 text-slate-900 sm:px-6 lg:py-20">
+            <div className="mx-auto grid w-full max-w-[1700px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
                 <div className="flex flex-col justify-center space-y-3 lg:col-span-6">
                     <h1 className="text-3xl font-bold text-blue-950 sm:text-4xl lg:text-[2rem] xl:text-[2rem]">
                         Own a fully built, ready-to-launch online shop for your electronics business
@@ -81,11 +81,11 @@ export default function Hero() {
                     </ul>
                 </div>
 
-                <div className="flex w-full justify-center lg:col-span-6">
-                    <div className="relative w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[380px] 2xl:h-[420px] lg:w-[730px] xl:w-[810px] 2xl:w-[890px]">
+                <div className="flex w-full min-w-0 justify-center lg:col-span-6">
+                    <div className="relative w-full max-w-[700px] min-w-0 overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[380px] 2xl:h-[420px]">
                         <video
                             ref={videoRef}
-                            className="absolute inset-0 h-full w-full object-cover"
+                            className="absolute inset-0 block h-full w-full object-cover object-center"
                             autoPlay
                             muted
                             loop
@@ -100,14 +100,14 @@ export default function Hero() {
                         </video>
 
                         <div
-                            className={`pointer-events-none absolute inset-0 bg-slate-100 transition-opacity duration-500 ${showPoster ? "opacity-100" : "opacity-0"
+                            className={`pointer-events-none absolute inset-0 overflow-hidden bg-slate-100 transition-opacity duration-500 ${showPoster ? "opacity-100" : "opacity-0"
                                 }`}
                             aria-hidden={!showPoster}
                         >
                             <img
                                 src="/images/storefrontposter.png"
                                 alt="RazeStore storefront preview"
-                                className="h-full w-full object-cover"
+                                className="block h-full w-full object-cover object-center"
                             />
                         </div>
                     </div>
