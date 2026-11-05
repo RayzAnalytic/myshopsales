@@ -24,3 +24,25 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.admin-no-scrollbar,
+.admin-no-scrollbar * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.admin-no-scrollbar::-webkit-scrollbar,
+.admin-no-scrollbar *::-webkit-scrollbar {
+  display: none;
+}

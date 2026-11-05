@@ -33,9 +33,9 @@ export default function Hero() {
 
     return (
         <section className="border-b border-slate-200 bg-white px-4 py-8 text-slate-900 sm:px-6 lg:py-12">
-            <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+            <div className="mx-auto grid w-full max-w-[1700px] grid-cols-1 items-center gap-4 lg:grid-cols-12 lg:gap-8">
                 <div className="flex flex-col justify-center space-y-3 lg:col-span-6">
-                    <h1 className="text-3xl font-bold leading-tight text-blue-950 sm:text-4xl lg:text-[2.15rem] xl:text-[2.5rem]">
+                    <h1 className="text-3xl font-bold text-blue-950 sm:text-4xl lg:text-[2rem] xl:text-[2rem]">
                         Own a fully built, ready-to-launch online shop for your electronics business
                     </h1>
                     <p className="max-w-2xl text-base text-slate-700 sm:text-sm">
@@ -72,7 +72,7 @@ export default function Hero() {
                 </div>
 
                 <div className="flex w-full justify-center lg:col-span-6">
-                    <div className="relative aspect-[2/1] w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm lg:w-[680px] xl:w-[760px] 2xl:w-[840px]">
+                    <div className="relative w-full max-w-full overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm lg:w-[700px] xl:w-[780px] 2xl:w-[860px]">
                         <video
                             ref={videoRef}
                             className="absolute inset-0 h-full w-full object-cover"
