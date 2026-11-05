@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -12,11 +12,14 @@ const capabilityLabels = [
     "Your own domain",
 ];
 
+const MIN_POSTER_MS = 1200;
+
 export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [showPoster, setShowPoster] = useState(true);
+    const mountedAtRef = useRef<number>(Date.now());
 
-    const startPlayback = () => {
+    useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
         video.muted = true;
@@ -24,11 +27,16 @@ export default function Hero() {
         if (playPromise && typeof playPromise.catch === "function") {
             playPromise.catch(() => { });
         }
-    };
+    }, []);
 
-    const handleReady = () => {
-        setShowPoster(false);
-        startPlayback();
+    const revealVideo = () => {
+        const elapsed = Date.now() - mountedAtRef.current;
+        const remaining = Math.max(0, MIN_POSTER_MS - elapsed);
+        if (remaining === 0) {
+            setShowPoster(false);
+        } else {
+            window.setTimeout(() => setShowPoster(false), remaining);
+        }
     };
 
     return (
@@ -82,8 +90,7 @@ export default function Hero() {
                             playsInline
                             preload="auto"
                             poster="/images/storefrontposter.png"
-                            onCanPlay={handleReady}
-                            onPlaying={() => setShowPoster(false)}
+                            onPlaying={revealVideo}
                             aria-label="RazeStore storefront preview"
                         >
                             <source src="/videos/completestorefront.mp4" type="video/mp4" />
