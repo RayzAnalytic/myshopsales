@@ -49,7 +49,7 @@ export default function CTASection({ variant = "full", className = "", whatsappN
 
     const isCompact = variant === "compact";
 
-    const phone = (whatsappNumber ?? "254116103872" ?? "").replace(/\D/g, "");
+    const phone = (whatsappNumber || "254116103872").replace(/\D/g, "");
 
     const waMessage = encodeURIComponent("Hi, I'd like to discuss getting a RazeStore online shop for my business.");
     const waHref = phone ? `https://wa.me/${phone}?text=${waMessage}` : `https://wa.me/?text=${waMessage}`;
