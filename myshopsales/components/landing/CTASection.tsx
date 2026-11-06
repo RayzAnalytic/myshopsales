@@ -115,8 +115,8 @@ export default function CTASection({ variant = "full", className = "", whatsappN
         <section
             className={`border-t border-slate-200 bg-slate-50 px-4 py-10 text-slate-700 sm:px-6 lg:py-14 ${className}`}
         >
-            <div className="mx-auto w-full max-w-6xl">
-                <div className={`grid gap-8 ${isCompact ? "lg:grid-cols-1" : "lg:grid-cols-2 lg:gap-10"}`}>
+            <div className="mx-auto w-full max-w-7xl">
+                <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
                     <div className="flex flex-col space-y-4">
                         <span className="text-xs font-semibold uppercase text-green-700">
                             Ready to get started?
@@ -204,7 +204,7 @@ export default function CTASection({ variant = "full", className = "", whatsappN
                                 </div>
                             </div>
                         ) : (
-                            <form onSubmit={submit} className="rounded-lg border border-slate-200 bg-white p-5 sm:p-6" noValidate>
+                            <form onSubmit={submit} className="rounded border border-slate-200 bg-white p-4 sm:p-6" noValidate>
                                 <div className="space-y-3">
                                     <FormField label="Full name" required>
                                         <input type="text" value={form.fullName} onChange={update("fullName")} placeholder="e.g. Jane Wanjiru" className={inputCls} autoComplete="name" />
@@ -249,7 +249,7 @@ export default function CTASection({ variant = "full", className = "", whatsappN
                                     {status === "submitting" ? "Sending…" : "Request a Consultation"}
                                 </button>
 
-                                <p className="mt-2 text-center text-xs leading-relaxed text-slate-500">
+                                <p className="mt-2 text-center text-xs text-slate-500">
                                     Your details will only be used to respond to your enquiry.
                                 </p>
                             </form>
