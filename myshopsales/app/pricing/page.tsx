@@ -115,46 +115,49 @@ const faqs = [
 export default function PricingPage() {
     return (
         <main className="bg-white text-slate-900">
-            <section className="mx-auto w-full max-w-7xl px-6 pb-4 pt-4">
-                <div className="flex flex-col space-y-1.5">
-                    <span className="text-xs font-semibold uppercase text-green-700">
-                        Pricing
-                    </span>
-                    <h1 className="text-xl font-bold text-blue-950 sm:text-2xl lg:text-3xl">
-                        A complete e-commerce system for your business.
-                    </h1>
-                    <p className="max-w-2xl text-sm text-slate-700 sm:text-base">
-                        A customized online shop with product management, order management,
-                        checkout, inventory and business administration tools.
-                    </p>
-                </div>
+            <section className="mx-auto w-full max-w-7xl px-6 py-6">
+                <div className="grid gap-4 lg:grid-cols-5 lg:gap-6">
+                    <div className="flex flex-col space-y-2 lg:col-span-3">
+                        <span className="text-xs font-semibold uppercase text-green-700">
+                            Pricing
+                        </span>
+                        <h1 className="text-2xl font-bold text-blue-950 sm:text-3xl lg:text-4xl">
+                            A complete e-commerce system for your business.
+                        </h1>
+                        <p className="max-w-2xl text-sm text-slate-700 sm:text-base">
+                            A customized online shop with product management, order management,
+                            checkout, inventory and business administration tools. Own it outright —
+                            no shared shop, no monthly RazeStore rental.
+                        </p>
+                    </div>
 
-                <div className="mt-4 rounded border border-slate-200 bg-slate-50 p-4 sm:p-4">
-                    <div className="flex flex-col space-y-1.5">
-                        <p className="text-[11px] font-semibold uppercase text-slate-500">
-                            One-time price
-                        </p>
-                        <p className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            KES 200,000
-                        </p>
-                        <p className="text-sm text-slate-700">
-                            One-time purchase. No monthly RazeStore rental.
-                        </p>
-                        <div className="flex flex-col gap-2 pt-1 sm:flex-row">
-                            <a
-                                href={whatsappHref}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
-                            >
-                                Discuss your project on WhatsApp
-                            </a>
-                            <Link
-                                href="/demos"
-                                className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
-                            >
-                                Explore demos
-                            </Link>
+                    <div className="rounded border border-slate-200 bg-slate-50 p-4 lg:col-span-2">
+                        <div className="flex flex-col space-y-2">
+                            <p className="text-[11px] font-semibold uppercase text-slate-500">
+                                One-time price
+                            </p>
+                            <p className="text-2xl font-bold text-blue-950 sm:text-3xl">
+                                KES 200,000
+                            </p>
+                            <p className="text-sm text-slate-700">
+                                One-time purchase. No monthly RazeStore rental.
+                            </p>
+                            <div className="flex flex-col gap-2 pt-1 sm:flex-row">
+                                <a
+                                    href={whatsappHref}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+                                >
+                                    Discuss on WhatsApp
+                                </a>
+                                <Link
+                                    href="/demos"
+                                    className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                                >
+                                    Explore demos
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -171,7 +174,7 @@ export default function PricingPage() {
                             agreed scope.
                         </p>
                     </div>
-                    <ul className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
+                    <ul className="mt-4 grid gap-x-6 gap-y-2 text-sm text-slate-800 sm:grid-cols-2">
                         {inclusions.map((item) => (
                             <li key={item} className="flex items-start gap-2">
                                 <span
@@ -196,28 +199,26 @@ export default function PricingPage() {
                             what is happening at each stage.
                         </p>
                     </div>
-                    <ol className="mt-3 flex flex-col space-y-2">
+                    <ol className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                         {phases.map((phase, index) => (
                             <li
                                 key={phase.title}
-                                className="rounded border border-slate-200 bg-white p-4"
+                                className="flex flex-col rounded border border-slate-200 bg-white p-4"
                             >
-                                <div className="flex flex-col space-y-1">
-                                    <p className="text-[11px] font-semibold uppercase text-green-700">
-                                        Phase {index + 1}
+                                <p className="text-[11px] font-semibold uppercase text-green-700">
+                                    Phase {index + 1}
+                                </p>
+                                <h3 className="mt-1 text-base font-semibold text-blue-950">
+                                    {phase.title}
+                                </h3>
+                                <p className="mt-2 text-sm text-slate-700">
+                                    {phase.body}
+                                </p>
+                                {phase.note ? (
+                                    <p className="mt-2 text-sm text-slate-600">
+                                        {phase.note}
                                     </p>
-                                    <h3 className="text-base font-semibold text-blue-950">
-                                        {phase.title}
-                                    </h3>
-                                    <p className="text-sm text-slate-700">
-                                        {phase.body}
-                                    </p>
-                                    {phase.note ? (
-                                        <p className="text-sm text-slate-600">
-                                            {phase.note}
-                                        </p>
-                                    ) : null}
-                                </div>
+                                ) : null}
                             </li>
                         ))}
                     </ol>
@@ -226,159 +227,183 @@ export default function PricingPage() {
 
             <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="flex flex-col space-y-1.5">
-                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Payment breakdown
-                        </h2>
-                        <p className="text-sm text-slate-700">
-                            The KES 200,000 project price is paid across three milestones.
-                        </p>
+                    <div className="grid gap-4 lg:grid-cols-5 lg:gap-6">
+                        <div className="flex flex-col space-y-1.5 lg:col-span-2">
+                            <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                                Payment breakdown
+                            </h2>
+                            <p className="text-sm text-slate-700">
+                                The KES 200,000 project price is paid across three
+                                milestones, so you always know what&apos;s next.
+                            </p>
+                            <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                                <li className="flex items-start gap-2">
+                                    <span
+                                        aria-hidden="true"
+                                        className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
+                                    />
+                                    <span>Deposit secures your build slot.</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span
+                                        aria-hidden="true"
+                                        className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
+                                    />
+                                    <span>Second payment after live demo.</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span
+                                        aria-hidden="true"
+                                        className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
+                                    />
+                                    <span>Final payment on handover.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="lg:col-span-3">
+                            <div className="overflow-hidden rounded border border-slate-200 bg-white">
+                                <table className="w-full text-left text-sm">
+                                    <thead className="bg-slate-100 text-[11px] font-semibold uppercase text-slate-500">
+                                        <tr>
+                                            <th scope="col" className="px-4 py-2">
+                                                Milestone
+                                            </th>
+                                            <th scope="col" className="px-4 py-2 text-right">
+                                                Amount
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-200">
+                                        {paymentMilestones.map((item) => (
+                                            <tr
+                                                key={item.label}
+                                                className={item.total ? "bg-slate-50" : undefined}
+                                            >
+                                                <td
+                                                    className={
+                                                        item.total
+                                                            ? "px-4 py-2 font-semibold text-blue-950"
+                                                            : "px-4 py-2 text-slate-800"
+                                                    }
+                                                >
+                                                    {item.label}
+                                                </td>
+                                                <td
+                                                    className={
+                                                        item.total
+                                                            ? "px-4 py-2 text-right font-semibold text-green-700"
+                                                            : "px-4 py-2 text-right text-slate-800"
+                                                    }
+                                                >
+                                                    {item.amount}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <div className="mt-4 overflow-hidden rounded border border-slate-200 bg-white">
-                        <table className="w-full text-left text-sm">
-                            <thead className="bg-slate-100 text-[11px] font-semibold uppercase text-slate-500">
-                                <tr>
-                                    <th scope="col" className="px-4 py-2">
-                                        Milestone
-                                    </th>
-                                    <th scope="col" className="px-4 py-2 text-right">
-                                        Amount
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-slate-200">
-                                {paymentMilestones.map((item) => (
-                                    <tr
-                                        key={item.label}
-                                        className={item.total ? "bg-slate-50" : undefined}
-                                    >
-                                        <td
-                                            className={
-                                                item.total
-                                                    ? "px-4 py-2 font-semibold text-blue-950"
-                                                    : "px-4 py-2 text-slate-800"
-                                            }
-                                        >
-                                            {item.label}
-                                        </td>
-                                        <td
-                                            className={
-                                                item.total
-                                                    ? "px-4 py-2 text-right font-semibold text-green-700"
-                                                    : "px-4 py-2 text-right text-slate-800"
-                                            }
-                                        >
-                                            {item.amount}
-                                        </td>
-                                    </tr>
+                </div>
+            </section>
+
+            <section className="border-t border-slate-200">
+                <div className="mx-auto w-full max-w-7xl px-6 py-6">
+                    <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
+                        <div className="rounded border border-slate-200 bg-white p-4">
+                            <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                                Ownership
+                            </h2>
+                            <p className="mt-1 text-sm text-slate-700">
+                                Your business. Your customized system. Your control.
+                            </p>
+                            <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
+                                {ownershipItems.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span
+                                            aria-hidden="true"
+                                            className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
+                                        />
+                                        <span>{item}</span>
+                                    </li>
                                 ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+                            </ul>
+                            <div className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-700">
+                                <p>No shared shop and no monthly RazeStore rental.</p>
+                                <p>
+                                    Ownership and transfer arrangements will be documented in the
+                                    purchase agreement. Source-code transfer is not implied.
+                                </p>
+                            </div>
+                        </div>
 
-            <section className="border-t border-slate-200">
-                <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="flex flex-col space-y-1.5">
-                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Ownership
-                        </h2>
-                        <p className="text-sm text-slate-700">
-                            Your business. Your customized system. Your control.
-                        </p>
-                    </div>
-                    <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
-                        {ownershipItems.map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                                <span
-                                    aria-hidden="true"
-                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-sm bg-green-600"
-                                />
-                                <span>{item}</span>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-700">
-                        <p>No shared shop and no monthly RazeStore rental.</p>
-                        <p>
-                            Ownership and transfer arrangements will be documented in the
-                            purchase agreement. Source-code transfer is not implied.
-                        </p>
+                        <div className="rounded border border-slate-200 bg-slate-50 p-4">
+                            <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                                Three months free management
+                            </h2>
+                            <p className="mt-1 text-sm text-slate-700">
+                                After final handover, you receive three months of free
+                                management support.
+                            </p>
+                            <div className="mt-3 flex flex-col space-y-2 text-sm text-slate-800">
+                                <p>
+                                    This covers the agreed technical support, troubleshooting,
+                                    bug fixes and routine assistance.
+                                </p>
+                                <p>
+                                    Continued management after the three-month period can be
+                                    arranged separately.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section className="border-t border-slate-200 bg-slate-50">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="flex flex-col space-y-1.5">
-                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Three months free management
-                        </h2>
-                        <p className="text-sm text-slate-700">
-                            After final handover, you receive three months of free management
-                            support.
-                        </p>
-                    </div>
-                    <div className="mt-4 flex flex-col space-y-1.5 text-sm text-slate-800">
-                        <p>
-                            This covers the agreed technical support, troubleshooting, bug fixes
-                            and routine assistance.
-                        </p>
-                        <p>
-                            Continued management after the three-month period can be arranged
-                            separately.
-                        </p>
-                    </div>
-                </div>
-            </section>
+                    <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
+                        <div className="rounded border border-slate-200 bg-white p-4">
+                            <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                                Additional costs
+                            </h2>
+                            <p className="mt-1 text-sm text-slate-700">
+                                The KES 200,000 project price is separate from recurring
+                                external expenses.
+                            </p>
+                            <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
+                                {additionalCosts.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span
+                                            aria-hidden="true"
+                                            className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-slate-400"
+                                        />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
 
-            <section className="border-t border-slate-200">
-                <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="flex flex-col space-y-1.5">
-                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Additional costs
-                        </h2>
-                        <p className="text-sm text-slate-700">
-                            The KES 200,000 project price should be distinguished from recurring
-                            external expenses.
-                        </p>
+                        <div className="rounded border border-slate-200 bg-white p-4">
+                            <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
+                                Customer responsibilities
+                            </h2>
+                            <p className="mt-1 text-sm text-slate-700">
+                                To complete the project, the customer provides:
+                            </p>
+                            <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
+                                {customerResponsibilities.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span
+                                            aria-hidden="true"
+                                            className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-slate-400"
+                                        />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                    <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
-                        {additionalCosts.map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                                <span
-                                    aria-hidden="true"
-                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-slate-400"
-                                />
-                                <span>{item}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </section>
-
-            <section className="border-t border-slate-200 bg-slate-50">
-                <div className="mx-auto w-full max-w-7xl px-6 py-6">
-                    <div className="flex flex-col space-y-1.5">
-                        <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                            Customer responsibilities
-                        </h2>
-                        <p className="text-sm text-slate-700">
-                            To complete the project, the customer provides:
-                        </p>
-                    </div>
-                    <ul className="mt-3 flex flex-col space-y-1.5 text-sm text-slate-800">
-                        {customerResponsibilities.map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                                <span
-                                    aria-hidden="true"
-                                    className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded bg-slate-400"
-                                />
-                                <span>{item}</span>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </section>
 
@@ -394,11 +419,11 @@ export default function PricingPage() {
                             management and handover.
                         </p>
                     </div>
-                    <div className="mt-3 flex flex-col space-y-2">
+                    <div className="mx-auto mt-4 grid max-w-5xl gap-2 lg:grid-cols-2">
                         {faqs.map((item) => (
                             <details
                                 key={item.q}
-                                className="group rounded border border-slate-200 bg-white p-3 open:bg-slate-50"
+                                className="group self-start rounded border border-slate-200 bg-white p-3 open:bg-slate-50"
                             >
                                 <summary className="cursor-pointer list-none text-sm font-semibold text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950">
                                     <span className="flex items-center justify-between gap-2">
