@@ -7,6 +7,7 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import OwnershipSection from "@/components/landing/OwnershipSection";
 import PricingSection from "@/components/landing/PricingSection";
 import FAQSection from "@/components/landing/FAQSection";
+import CTASection from "@/components/landing/CTASection";
 
 export const metadata: Metadata = {
   title:
@@ -26,6 +27,7 @@ export default function Home() {
       <OwnershipSection />
       <PricingSection />
       <FAQSection />
+      <CTASection />
     </div>
   );
 }

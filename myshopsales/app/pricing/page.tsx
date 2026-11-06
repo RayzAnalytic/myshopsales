@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CTASection from "@/components/landing/CTASection";
 
 const whatsappNumber = ("+254116103872").replace(/\D/g, "");
 
@@ -199,7 +200,7 @@ export default function PricingPage() {
                         {phases.map((phase, index) => (
                             <li
                                 key={phase.title}
-                                className="rounded-sm border border-slate-200 bg-white p-4"
+                                className="rounded border border-slate-200 bg-white p-4"
                             >
                                 <div className="flex flex-col space-y-1">
                                     <p className="text-[11px] font-semibold uppercase text-green-700">
@@ -419,40 +420,18 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <section className="border-t border-slate-200 bg-white">
-                <div className="mx-auto w-full max-w-7xl px-6 py-8">
-                    <div className="rounded border border-slate-200 bg-slate-50 p-3 sm:p-6">
-                        <div className="flex flex-col space-y-1.5">
-                            <h2 className="text-xl font-bold text-blue-950 sm:text-2xl">
-                                Ready to get your own e-commerce system?
-                            </h2>
-                            <p className="max-w-2xl text-sm text-slate-700">
-                                Get a customized online shop built around your business, with a
-                                clear delivery process and exclusive ownership.
-                            </p>
-                            <p className="text-sm font-semibold text-green-700">
-                                KES 200,000 – One-time purchase.
-                            </p>
-                            <div className="flex flex-col gap-2 pt-1 sm:flex-row">
-                                <a
-                                    href={whatsappHref}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
-                                >
-                                    Discuss your project on WhatsApp
-                                </a>
-                                <Link
-                                    href="/"
-                                    className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
-                                >
-                                    Back to home
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+            <CTASection variant="compact" whatsappNumber="254116103872" />
+
+            <div className="border-t border-slate-200 bg-white">
+                <div className="mx-auto w-full max-w-7xl px-6 py-6">
+                    <Link
+                        href="/"
+                        className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
+                    >
+                        Back to home
+                    </Link>
                 </div>
-            </section>
+            </div>
         </main>
     );
 }

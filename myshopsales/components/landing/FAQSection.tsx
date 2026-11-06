@@ -1,6 +1,4 @@
-import Link from "next/link";
-import WhatsAppButton from "@/components/WhatsAppButton";
-
+import Link from "next/link"; 
 const faqs = [
     {
         q: "What is RazeStore?",
@@ -108,12 +106,7 @@ export default function FAQSection() {
                             anything is agreed.
                         </p>
                         <div className="flex flex-col gap-2 pt-1 sm:flex-row">
-                            <WhatsAppButton
-                                message="Hi, I have a question about RazeStore for my business."
-                                variant="primary"
-                            >
-                                Chat on WhatsApp
-                            </WhatsAppButton>
+                           
                             <Link
                                 href="/pricing"
                                 className="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-blue-950 transition-colors hover:border-blue-950 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-950"
