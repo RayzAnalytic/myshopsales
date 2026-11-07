@@ -18,6 +18,7 @@ export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [showPoster, setShowPoster] = useState(true);
     const mountedAtRef = useRef<number>(0);
+    const revealTimerRef = useRef<number | null>(null);
 
     useEffect(() => {
         mountedAtRef.current = Date.now();
@@ -29,6 +30,13 @@ export default function Hero() {
         if (playPromise && typeof playPromise.catch === "function") {
             playPromise.catch(() => { });
         }
+
+        return () => {
+            if (revealTimerRef.current) {
+                window.clearTimeout(revealTimerRef.current);
+                revealTimerRef.current = null;
+            }
+        };
     }, []);
 
     const revealVideo = () => {
@@ -37,7 +45,13 @@ export default function Hero() {
         if (remaining === 0) {
             setShowPoster(false);
         } else {
-            window.setTimeout(() => setShowPoster(false), remaining);
+            if (revealTimerRef.current) {
+                window.clearTimeout(revealTimerRef.current);
+            }
+            revealTimerRef.current = window.setTimeout(() => {
+                setShowPoster(false);
+                revealTimerRef.current = null;
+            }, remaining);
         }
     };
 
@@ -51,7 +65,7 @@ export default function Hero() {
                     <p className="max-w-2xl text-base text-slate-700 sm:text-sm">
                         RazeStore is a complete, turn-key e-commerce platform built specifically for your shop.
                         It comes with a fully operational customer storefront, integrated M-Pesa payments,
-                        and a powerful 20-module admin dashboard. You own the complete source code, content, and domain.
+                        and a powerful 20-module admin dashboard. You own your storefront, your content, and your domain.
                     </p>
 
                     <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:items-center">

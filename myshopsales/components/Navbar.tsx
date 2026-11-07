@@ -94,6 +94,10 @@ const navigation: NavItem[] = [
         label: "Pricing",
         href: "/pricing",
     },
+    {
+        label: "Business Proposal",
+        href: "/proposal",
+    },
 ];
 
 const whatsappNumber = ("+254116103872").replace(/\D/g, "");
