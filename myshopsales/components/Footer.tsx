@@ -19,10 +19,10 @@ const whatsappMessage = encodeURIComponent(
 const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
 const socialLinks = [
-    { label: "Facebook", href: "https://facebook.com/razestore", Icon: FaFacebookF },
-    { label: "Instagram", href: "https://instagram.com/razestore", Icon: FaInstagram },
-    { label: "TikTok", href: "https://tiktok.com/@razestore", Icon: FaTiktok },
-    { label: "YouTube", href: "https://youtube.com/@razestore", Icon: FaYoutube },
+    { label: "Facebook", href: "https://facebook.com/razeanaly", Icon: FaFacebookF },
+    { label: "Instagram", href: "https://instagram.com/raze_analy", Icon: FaInstagram },
+    { label: "TikTok", href: "https://tiktok.com/@raze_analy", Icon: FaTiktok },
+    // YouTube coming soon
 ];
 
 const siteLinks = [
