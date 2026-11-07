@@ -3,6 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+    FaFacebookF,
+    FaInstagram,
+    FaTiktok,
+    FaYoutube,
+} from "react-icons/fa6";
 
 const WHATSAPP_NUMBER = "254116103872";
 
@@ -11,6 +17,13 @@ const whatsappMessage = encodeURIComponent(
 );
 
 const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+const socialLinks = [
+    { label: "Facebook", href: "https://facebook.com/razestore", Icon: FaFacebookF },
+    { label: "Instagram", href: "https://instagram.com/razestore", Icon: FaInstagram },
+    { label: "TikTok", href: "https://tiktok.com/@razestore", Icon: FaTiktok },
+    { label: "YouTube", href: "https://youtube.com/@razestore", Icon: FaYoutube },
+];
 
 const siteLinks = [
     { label: "Home", href: "/" },
@@ -37,8 +50,8 @@ export default function Footer() {
     return (
         <footer className="border-t border-blue-900 bg-blue-950 text-white">
             <div className="mx-auto w-full max-w-7xl px-6 py-8">
-                <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
-                    <div className="flex flex-col space-y-1.5 lg:col-span-4">
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+                    <div className="flex flex-col space-y-3 lg:col-span-4">
                         <div className="flex items-center gap-2">
                             <Image
                                 src="/logo.jpeg"
@@ -56,6 +69,21 @@ export default function Footer() {
                             electronics shop owners. Own your store, sell on your
                             own domain, and manage orders without touching code.
                         </p>
+                        <div className="flex items-center gap-2 pt-1">
+                            {socialLinks.map(({ label, href, Icon }) => (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={label}
+                                    title={label}
+                                    className="inline-flex h-9 w-9 items-center justify-center rounded border border-blue-800 bg-blue-900/40 text-slate-200 transition-colors hover:border-blue-700 hover:bg-blue-800 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                >
+                                    <Icon className="h-4 w-4" />
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
                     <nav
@@ -119,7 +147,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-2 border-t border-blue-900 pt-4">
+                <div className="mt-4 border-t border-blue-900 pt-4">
                     <div className="flex flex-col space-y-1.5">
                         <p className="text-xs text-slate-300">
                             Third-party integrations such as M-Pesa, email,
