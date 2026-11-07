@@ -36,6 +36,17 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .admin-no-scrollbar,
 .admin-no-scrollbar * {
   scrollbar-width: none;
