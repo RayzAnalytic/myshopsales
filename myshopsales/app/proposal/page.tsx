@@ -57,11 +57,12 @@ export default function ProposalPage() {
                                     Open full size ↗
                                 </a>
                             </div>
-                            <div className="relative bg-slate-100">
+                            <div className="no-scrollbar relative h-[calc(100vh-260px)] min-h-[500px] overflow-y-auto bg-slate-100">
                                 <iframe
-                                    src={`${PDF_PATH}#view=FitH`}
+                                    src={`${PDF_PATH}#view=FitH&toolbar=0&navpanes=0`}
                                     title="RazeStore Business Proposal PDF preview"
-                                    className="block h-[calc(100vh-260px)] min-h-[500px] w-full"
+                                    className="block w-full border-0"
+                                    style={{ height: 12000 }}
                                 />
                             </div>
                         </div>
@@ -73,7 +74,7 @@ export default function ProposalPage() {
                     </div>
 
                     <aside className="lg:col-span-1">
-                        <div className="flex flex-col space-y-3">
+                        <div className="flex flex-col space-y-3 lg:sticky lg:top-6">
                             <a
                                 href={PDF_PATH}
                                 download="RazeStore-Business-Proposal.pdf"
