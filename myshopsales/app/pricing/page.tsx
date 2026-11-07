@@ -445,7 +445,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            <CTASection variant="compact" whatsappNumber="254116103872" />
+            <CTASection whatsappNumber="254116103872" />
 
             <div className="border-t border-slate-200 bg-white">
                 <div className="mx-auto w-full max-w-7xl px-6 py-6">
