@@ -22,7 +22,6 @@ const socialLinks = [
     { label: "Facebook", href: "https://facebook.com/razeanaly", Icon: FaFacebookF },
     { label: "Instagram", href: "https://instagram.com/raze_analy", Icon: FaInstagram },
     { label: "TikTok", href: "https://tiktok.com/@raze_analy", Icon: FaTiktok },
-    // YouTube coming soon
 ];
 
 const siteLinks = [
@@ -30,6 +29,7 @@ const siteLinks = [
     { label: "Demos", href: "/demos" },
     { label: "Pricing", href: "/pricing" },
     { label: "How It Works", href: "/#how-it-works" },
+    { label: "Business Proposal (PDF)", href: "/proposal" },
 ];
 
 const demoLinks = [
